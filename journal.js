@@ -27,6 +27,7 @@ function applyJournalUpdates(data) {
   }
   data.config.modules.overview = false;
   data.config.modules.ledger = true;
+  applyHotelBookingUpdates(data);
   return data;
 }
 
@@ -113,11 +114,12 @@ async function importJournal(file) {
   state.data=data.tripData;state.todos=data.todos;state.purchasedTickets=new Set(data.purchasedTickets);
   applyJournalUpdates(state.data);
   window.TRAVEL_PLAN_DATA=state.data;
-  persistJournal();renderHero();renderFlights();refreshJournalTimeline();renderRental();renderTodoList();
+  persistJournal();renderHero();renderFlights();refreshJournalTimeline();renderRental();renderTodoList();renderHotelBookings();
   $('#journal-status').textContent='备份已导入并保存';
 }
 
 function setupJournal() {
+  renderHotelBookings();
   const map=state.data.mapLinks.providedGoogleMapsLinks[0];
   if(map){$('#journal-maps').href=map.url;$('#journal-maps').textContent=map.label+' ↗';}
   $('#journal-export').onclick=exportJournal;

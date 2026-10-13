@@ -650,7 +650,7 @@ function renderRental() {
   const rental = transport.rentalCar;
   if (rental?.placeholder) {
     $("#rental-provider-label").textContent = "暂定 · 待确认";
-    $("#rental-card").innerHTML = `<article class="journal-rental-pending"><span class="journal-status">暂定</span><h3>大洋路自驾 · 2 天</h3><p>${escapeHtml(formatCompactDate(rental.pickup.date))} · ${escapeHtml(rental.pickup.location)}取车</p><p>${escapeHtml(formatCompactDate(rental.dropoff.date))} · ${escapeHtml(rental.dropoff.vehicleReturnPoint)}还车</p><p>21 日住阿波罗湾，22 日住墨尔本机场酒店，住宿均待确认。</p><p class="detail-note">${escapeHtml(rental.dropoff.deadlineWarning)}</p></article>`;
+    $("#rental-card").innerHTML = `<article class="journal-rental-pending"><span class="journal-status">暂定</span><h3>大洋路自驾 · 2 天</h3><p>${escapeHtml(formatCompactDate(rental.pickup.date))} · ${escapeHtml(rental.pickup.location)}取车</p><p>${escapeHtml(formatCompactDate(rental.dropoff.date))} · ${escapeHtml(rental.dropoff.vehicleReturnPoint)}还车</p><p>21 日住 Apollo Bay Motel & Apartments，22 日住 Ibis Styles Melbourne Airport，两晚均已提供预订订单；租车仍待确认。</p><p class="detail-note">${escapeHtml(rental.dropoff.deadlineWarning)}</p></article>`;
     $("#drive-notes").innerHTML = (transport.drivingNotes || []).map(note => `<p class="detail-note">${escapeHtml(note)}</p>`).join("");
     return;
   }
