@@ -219,7 +219,7 @@ function relativeFlightDate(date, journeyStartDate) {
 function flightStopMarkup(stop, position, journeyStartDate) {
   let timing;
   if (position === 0) {
-    timing = `<span>${escapeHtml(relativeFlightDate(stop.departure.date, journeyStartDate))}</span><b>${escapeHtml(stop.departure.time)} 出发</b>`;
+    timing = `<span>${escapeHtml(relativeFlightDate(stop.departure.date, journeyStartDate))}</span><b>${escapeHtml(stop.departure.time)} 起飞</b>`;
   } else if (position === stop.totalStops - 1) {
     timing = `<span>${escapeHtml(relativeFlightDate(stop.arrival.date, journeyStartDate))}</span><b>${escapeHtml(stop.arrival.time)} 抵达</b>`;
   } else {

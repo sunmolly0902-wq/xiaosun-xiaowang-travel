@@ -1,4 +1,5 @@
 :root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --paper: #f3f6f2;
   --surface: #ffffff;
   --ink: #13262f;
@@ -27,7 +28,7 @@ body {
     linear-gradient(rgba(40, 123, 144, 0.035) 1px, transparent 1px),
     var(--paper);
   background-size: 100% 32px;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
 }
@@ -91,13 +92,13 @@ main { overflow: hidden; }
   letter-spacing: 0.16em;
 }
 .hero h1 { margin: 0; max-width: 620px; font-size: clamp(38px, 12vw, 64px); line-height: 0.98; letter-spacing: -0.06em; font-weight: 820; }
-.hero__date { margin: 14px 0 0; font: 650 14px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.03em; }
+.hero__date { margin: 14px 0 0; font: 650 14px/1.4 var(--font-sans); letter-spacing: 0.03em; }
 
 .section { padding: 44px 18px; scroll-margin-top: 48px; }
 .flights-section { padding-top: 24px; padding-bottom: 34px; }
 .section-heading { margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
 .section-heading h2 { margin: 0; font-size: 30px; line-height: 1; letter-spacing: -0.04em; }
-.section-index, .soft-label { margin: 0; color: var(--muted); font: 700 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.08em; }
+.section-index, .soft-label { margin: 0; color: var(--muted); font: 700 11px/1 var(--font-sans); letter-spacing: 0.08em; }
 
 .flight-carousel {
   display: flex;
@@ -121,27 +122,27 @@ main { overflow: hidden; }
   display: flex;
   flex-direction: column;
 }
-.flight-card__top { color: #a9c3c8; font: 700 11px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.08em; }
+.flight-card__top { color: #a9c3c8; font: 700 11px/1.3 var(--font-sans); letter-spacing: 0.08em; }
 .flight-card__airlines { margin-top: 7px; color: #7599a0; font-size: 10px; }
 .flight-flow { margin-top: 17px; display: grid; grid-template-columns: var(--route-columns); align-items: start; }
 .flight-stop { min-width: 0; text-align: center; }
 .flight-stop:first-child { text-align: left; }
 .flight-stop:last-child { text-align: right; }
-.flight-stop__code { display: block; color: #fff; font: 760 clamp(25px, 8vw, 36px)/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -.05em; }
+.flight-stop__code { display: block; color: #fff; font: 760 clamp(25px, 8vw, 36px)/1 var(--font-sans); letter-spacing: -.05em; }
 .flight-stop__city { display: block; min-height: 30px; margin-top: 5px; color: #b8cccf; font-size: 11px; line-height: 1.25; }
 .flight-stop__dot { position: relative; z-index: 1; display: inline-block; width: 9px; height: 9px; margin: 8px 0 10px; border: 2px solid #8fc6d0; border-radius: 50%; background: var(--ink); }
 .flight-stop__timing { display: flex; flex-direction: column; gap: 3px; color: #9db7bc; font-size: 9px; line-height: 1.3; }
 .flight-stop__timing b { color: #eff8f8; font-size: 10px; font-weight: 720; }
 .flight-stop__timing em { color: #e0a983; font-style: normal; font-size: 9px; }
 .flight-segment { min-width: 0; padding-top: 53px; color: #91b9c0; text-align: center; }
-.flight-segment span { display: block; overflow: hidden; font: 700 9px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; text-overflow: ellipsis; white-space: nowrap; }
+.flight-segment span { display: block; overflow: hidden; font: 700 9px/1.2 var(--font-sans); text-overflow: ellipsis; white-space: nowrap; }
 .flight-segment i { display: block; height: 1px; margin-top: 9px; background: rgba(143,198,208,.5); color: #8fc6d0; font-style: normal; font-size: 13px; line-height: 1px; text-align: right; }
 .flight-card__countdown-row { margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.16); }
 .flight-countdown { text-align: left; }
 .flight-countdown span { display: block; color: #a9c3c8; font-size: 11px; }
-.flight-countdown strong { display: block; margin-top: 5px; color: #fff; font: 760 clamp(22px, 7vw, 30px)/1.1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.flight-countdown strong { display: block; margin-top: 5px; color: #fff; font: 760 clamp(22px, 7vw, 30px)/1.1 var(--font-sans); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
 .flight-placeholder { margin: 34px 0 22px; }
-.flight-placeholder__eyebrow { color: #e0a983; font: 760 10px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+.flight-placeholder__eyebrow { color: #e0a983; font: 760 10px/1.3 var(--font-sans); letter-spacing: .12em; }
 .flight-placeholder h3 { margin: 9px 0 0; color: #fff; font-size: clamp(24px, 7vw, 34px); line-height: 1.08; letter-spacing: -.035em; }
 .flight-placeholder p { max-width: 520px; margin: 12px 0 0; color: #b8cccf; font-size: 12px; line-height: 1.7; }
 .flight-placeholder ul { margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; list-style: none; }
@@ -162,7 +163,7 @@ main { overflow: hidden; }
 .day-dot { position: absolute; left: 12px; top: 25px; z-index: 1; width: 13px; height: 13px; border: 3px solid var(--paper); border-radius: 50%; background: #a5b1ae; box-shadow: 0 0 0 1px #a5b1ae; }
 .day-card.is-today .day-dot { background: var(--terracotta); box-shadow: 0 0 0 3px rgba(182,92,58,.18); }
 .day-toggle { width: 100%; min-height: 78px; padding: 15px 4px; border: 0; border-bottom: 1px solid var(--line); background: transparent; text-align: left; display: grid; grid-template-columns: 1fr auto; gap: 12px; cursor: pointer; }
-.day-meta { color: var(--lake); font: 750 11px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .05em; }
+.day-meta { color: var(--lake); font: 750 11px/1.3 var(--font-sans); letter-spacing: .05em; }
 .day-title { margin-top: 5px; font-size: 17px; font-weight: 740; line-height: 1.35; }
 .day-locations { margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.45; }
 .day-ticket-summary { display: inline-flex; min-height: 24px; margin-top: 9px; padding: 4px 8px; align-items: center; border-radius: 999px; font-size: 10px; font-weight: 760; }
@@ -176,7 +177,7 @@ main { overflow: hidden; }
 .schedule-item { position: relative; padding: 0 0 21px 82px; min-height: 50px; }
 .schedule-item::before { content: ""; position: absolute; left: 70px; top: 6px; bottom: 0; width: 1px; background: #dce4e2; }
 .schedule-item:last-child::before { display: none; }
-.schedule-time { position: absolute; left: 0; top: 0; width: 62px; color: var(--muted); font: 700 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.schedule-time { position: absolute; left: 0; top: 0; width: 62px; color: var(--muted); font: 700 11px/1.45 var(--font-sans); }
 .schedule-item::after { content: ""; position: absolute; left: 66px; top: 5px; width: 9px; height: 9px; border: 2px solid var(--lake); border-radius: 50%; background: var(--paper); }
 .schedule-text { font-size: 13px; line-height: 1.65; }
 .schedule-map-links { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 6px; }
@@ -204,7 +205,7 @@ main { overflow: hidden; }
 .ticket-list { display: grid; gap: 11px; }
 .ticket-card { padding: 17px; border: 1px solid var(--line); border-radius: var(--radius-md); background: rgba(255,255,255,.78); }
 .ticket-card.is-purchased { background: rgba(241,247,240,.82); }
-.ticket-card__date { color: var(--lake); font: 740 10px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; }
+.ticket-card__date { color: var(--lake); font: 740 10px/1.2 var(--font-sans); letter-spacing: .06em; }
 .ticket-card__head { margin-top: 9px; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .ticket-card__head h3 { margin: 0; font-size: 16px; line-height: 1.25; }
 .ticket-card__head p { margin: 4px 0 0; color: var(--muted); font-size: 10px; }
@@ -241,18 +242,18 @@ main { overflow: hidden; }
 .return-deadline.is-urgent { background: #ffe1da; color: #8c291f; border-color: #b84635; }
 .rental-countdown { padding: 24px; background: var(--lake); }
 .rental-countdown span { display: block; color: #d6ebee; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
-.rental-countdown strong { display: block; margin-top: 8px; font: 760 clamp(28px, 9vw, 44px)/1.05 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -.05em; }
+.rental-countdown strong { display: block; margin-top: 8px; font: 760 clamp(28px, 9vw, 44px)/1.05 var(--font-sans); letter-spacing: -.05em; }
 .rental-countdown small { display: block; margin-top: 10px; color: #d6ebee; line-height: 1.5; }
 .rental-details { padding: 22px; }
 .rental-car { font-size: 19px; font-weight: 750; }
 .rental-sub { margin-top: 5px; color: #abc0c4; font-size: 12px; }
 .rental-stops { margin-top: 24px; display: grid; gap: 16px; }
 .rental-stop { display: grid; grid-template-columns: 58px 1fr; gap: 12px; }
-.rental-stop__label { color: #7fa8b0; font: 700 10px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.rental-stop__label { color: #7fa8b0; font: 700 10px/1.5 var(--font-sans); }
 .rental-stop b { display: block; font-size: 14px; }
 .rental-stop span { display: block; margin-top: 4px; color: #abc0c4; font-size: 12px; line-height: 1.5; }
 .rental-price { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); display: flex; justify-content: space-between; color: #abc0c4; font-size: 12px; }
-.rental-price strong { color: white; font: 720 15px/1 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.rental-price strong { color: white; font: 720 15px/1 var(--font-sans); }
 
 .accordion-stack { margin-top: 14px; display: grid; gap: 10px; }
 .accordion { border: 1px solid var(--line); border-radius: var(--radius-md); background: rgba(255,255,255,.72); overflow: hidden; }
