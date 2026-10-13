@@ -1,0 +1,1570 @@
+{
+  "$schema": "./schemas/trip-data.schema.json",
+  "schemaVersion": "2.0-lite",
+  "config": {
+    "schemaVersion": "1.0.0",
+    "modules": {
+      "flights": true,
+      "overview": false,
+      "itinerary": true,
+      "driving": true,
+      "todo": true,
+      "ledger": false
+    },
+    "language": "zh-CN",
+    "persistence": {
+      "mode": "local"
+    }
+  },
+  "metadata": {
+    "tripId": "xiaosun-xiaowang-australia-2026",
+    "title": "小孙小王旅行日记",
+    "language": "zh-CN",
+    "assets": {},
+    "timeZone": "Asia/Shanghai"
+  },
+  "trip": {
+    "status": "draft",
+    "startDate": "2026-11-16",
+    "endDate": "2026-11-30",
+    "dayCount": 15,
+    "nightCountAway": 14,
+    "countries": [
+      {
+        "code": "AU",
+        "name": "Australia",
+        "nameZh": "澳大利亚",
+        "nameEn": "AUSTRALIA"
+      }
+    ],
+    "primaryDestinationCountries": [
+      "AU"
+    ],
+    "citiesAndAreas": [
+      "墨尔本",
+      "大洋路",
+      "悉尼"
+    ],
+    "routeSummary": "泉州 → 上海 → 墨尔本 → 大洋路 → 悉尼 → 广州 → 泉州",
+    "groupSize": 2,
+    "heroTitle": "小孙小王旅行日记",
+    "heroEyebrow": "OUR AUSTRALIA JOURNEY · 2026"
+  },
+  "flightJourneys": [
+    {
+      "id": "outbound",
+      "title": "泉州 → 上海 → 墨尔本",
+      "bookingStatus": "已出票"
+    },
+    {
+      "id": "domestic",
+      "title": "11月23日 墨尔本 → 悉尼",
+      "placeholder": true,
+      "status": "pending",
+      "description": "暂选捷星约 11:10 出发；航班号、抵达时间和行李额度待确认。",
+      "missingFields": [
+        "flightNumber",
+        "arrivalTime"
+      ]
+    },
+    {
+      "id": "return",
+      "title": "悉尼 → 广州 → 泉州",
+      "bookingStatus": "已出票",
+      "notes": [
+        "11月29日在广州过夜，住宿待确认"
+      ]
+    }
+  ],
+  "flights": [
+    {
+      "id": "MU6346",
+      "journeyId": "outbound",
+      "sequence": 1,
+      "airline": {
+        "nameZh": "东方航空"
+      },
+      "flightNumber": "MU6346",
+      "departure": {
+        "airportCode": "JJN",
+        "city": "泉州",
+        "date": "2026-11-16",
+        "time": "18:20",
+        "utcOffset": "+08:00",
+        "terminal": ""
+      },
+      "arrival": {
+        "airportCode": "PVG",
+        "city": "上海",
+        "date": "2026-11-16",
+        "time": "20:00",
+        "utcOffset": "+08:00",
+        "terminal": "T1"
+      },
+      "bookingStatus": "已出票"
+    },
+    {
+      "id": "MU739",
+      "journeyId": "outbound",
+      "sequence": 2,
+      "airline": {
+        "nameZh": "东方航空"
+      },
+      "flightNumber": "MU739",
+      "departure": {
+        "airportCode": "PVG",
+        "city": "上海",
+        "date": "2026-11-17",
+        "time": "00:15",
+        "utcOffset": "+08:00",
+        "terminal": "T1"
+      },
+      "arrival": {
+        "airportCode": "MEL",
+        "city": "墨尔本",
+        "date": "2026-11-17",
+        "time": "14:05",
+        "utcOffset": "+11:00",
+        "terminal": "T2"
+      },
+      "bookingStatus": "已出票"
+    },
+    {
+      "id": "CZ8092",
+      "journeyId": "return",
+      "sequence": 1,
+      "airline": {
+        "nameZh": "南方航空"
+      },
+      "flightNumber": "CZ8092",
+      "departure": {
+        "airportCode": "SYD",
+        "city": "悉尼",
+        "date": "2026-11-29",
+        "time": "15:10",
+        "utcOffset": "+11:00",
+        "terminal": "T1"
+      },
+      "arrival": {
+        "airportCode": "CAN",
+        "city": "广州",
+        "date": "2026-11-29",
+        "time": "21:50",
+        "utcOffset": "+08:00",
+        "terminal": "T2"
+      },
+      "bookingStatus": "已出票"
+    },
+    {
+      "id": "CZ3283",
+      "journeyId": "return",
+      "sequence": 2,
+      "airline": {
+        "nameZh": "南方航空"
+      },
+      "flightNumber": "CZ3283",
+      "departure": {
+        "airportCode": "CAN",
+        "city": "广州",
+        "date": "2026-11-30",
+        "time": "10:00",
+        "utcOffset": "+08:00",
+        "terminal": "T2"
+      },
+      "arrival": {
+        "airportCode": "JJN",
+        "city": "泉州",
+        "date": "2026-11-30",
+        "time": "11:20",
+        "utcOffset": "+08:00",
+        "terminal": ""
+      },
+      "bookingStatus": "已出票"
+    }
+  ],
+  "accommodations": [
+    {
+      "id": "stay-0",
+      "date": "2026-11-17",
+      "name": "Holiday Inn Melbourne Bourke Street Mall",
+      "status": "pending"
+    },
+    {
+      "id": "stay-1",
+      "date": "2026-11-18",
+      "name": "Holiday Inn Melbourne Bourke Street Mall（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-2",
+      "date": "2026-11-19",
+      "name": "Holiday Inn Melbourne Bourke Street Mall（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-3",
+      "date": "2026-11-20",
+      "name": "墨尔本市区酒店（待定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-4",
+      "date": "2026-11-21",
+      "name": "阿波罗湾酒店（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-5",
+      "date": "2026-11-22",
+      "name": "墨尔本机场酒店（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-6",
+      "date": "2026-11-23",
+      "name": "Meriton Suites Mascot Central（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-7",
+      "date": "2026-11-24",
+      "name": "Meriton Suites Mascot Central（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-8",
+      "date": "2026-11-25",
+      "name": "Meriton Suites Mascot Central（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-9",
+      "date": "2026-11-26",
+      "name": "Meriton Suites Mascot Central（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-10",
+      "date": "2026-11-27",
+      "name": "Meriton Suites Mascot Central（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-11",
+      "date": "2026-11-28",
+      "name": "Meriton Suites Mascot Central（暂定）",
+      "status": "pending"
+    },
+    {
+      "id": "stay-12",
+      "date": "2026-11-29",
+      "name": "广州机场附近酒店（待定）",
+      "status": "pending"
+    }
+  ],
+  "groundTransport": {
+    "rentalCar": {
+      "placeholder": true,
+      "status": "pending",
+      "company": "租车公司待确认",
+      "rentalPeriodDays": 2,
+      "vehicle": {
+        "example": "车型待确认",
+        "class": ""
+      },
+      "unlimitedKilometers": null,
+      "price": {
+        "currency": "",
+        "payAtCounter": null
+      },
+      "insurance": [],
+      "pickup": {
+        "date": "2026-11-21",
+        "time": "",
+        "location": "墨尔本机场（暂定）",
+        "address": "",
+        "utcOffset": "+11:00"
+      },
+      "dropoff": {
+        "date": "2026-11-22",
+        "time": "",
+        "location": "墨尔本机场（暂定）",
+        "vehicleReturnPoint": "墨尔本机场（暂定）",
+        "utcOffset": "+11:00",
+        "timeZoneLabel": "墨尔本当地时间",
+        "deadlineWarning": "取还车时间、租车公司、车型、价格与保险待确认",
+        "recommendedArrivalTime": ""
+      }
+    },
+    "rentalChecklist": [],
+    "drivingNotes": [
+      "预留停车、休息和驾驶时间",
+      "回程较长，避免塞入市区夜间活动"
+    ],
+    "drivingReferenceLinks": [],
+    "plannedRoadLegs": [
+      {
+        "day": 6,
+        "from": "墨尔本机场",
+        "to": "阿波罗湾",
+        "status": "pending"
+      },
+      {
+        "day": 7,
+        "from": "阿波罗湾",
+        "via": "十二门徒岩",
+        "to": "墨尔本机场",
+        "status": "pending"
+      }
+    ],
+    "publicTransitAndRail": []
+  },
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-11-16",
+      "title": "出发去上海",
+      "city": "泉州",
+      "locations": [
+        "泉州"
+      ],
+      "tentative": false,
+      "schedule": [
+        {
+          "id": "day-1-plan-1",
+          "time": "",
+          "type": "flight",
+          "text": "泉州机场 18:20 乘 MU6346"
+        },
+        {
+          "id": "day-1-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "20:00 抵达上海浦东 T1。"
+        },
+        {
+          "id": "day-1-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "航班途中"
+        },
+        {
+          "id": "day-1-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "MU6346 已出票"
+        }
+      ],
+      "notes": [
+        "注意次日凌晨转机"
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-11-17",
+      "title": "抵达墨尔本",
+      "city": "墨尔本",
+      "locations": [
+        "墨尔本"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-2-plan-1",
+          "time": "",
+          "type": "flight",
+          "text": "00:15 乘 MU739"
+        },
+        {
+          "id": "day-2-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "14:05 抵达墨尔本 T2"
+        },
+        {
+          "id": "day-2-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "入境、去酒店"
+        },
+        {
+          "id": "day-2-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "酒店周围逛逛"
+        },
+        {
+          "id": "day-2-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "Holiday Inn Melbourne Bourke Street Mall"
+        },
+        {
+          "id": "day-2-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "MU739 已出票"
+        }
+      ],
+      "notes": [
+        "抵达当天不安排远途活动，以熟悉酒店周围景点为主"
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-11-18",
+      "title": "蒸汽火车与酒庄",
+      "city": "墨尔本",
+      "locations": [
+        "墨尔本"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-3-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "普芬比利蒸汽小火车",
+          "placeId": "place-13"
+        },
+        {
+          "id": "day-3-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "亚拉河谷酒庄一日游。",
+          "placeId": "place-14"
+        },
+        {
+          "id": "day-3-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "Holiday Inn Melbourne Bourke Street Mall（暂定）"
+        },
+        {
+          "id": "day-3-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "飞猪一日游产品待确认"
+        }
+      ],
+      "notes": [
+        "核对火车乘坐区间、酒庄项目、接送点和取消规则"
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-11-19",
+      "title": "市区景点citywalk",
+      "city": "墨尔本",
+      "locations": [
+        "墨尔本"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-4-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "维多利亚女皇市场（注意营业时间）",
+          "placeId": "place-15"
+        },
+        {
+          "id": "day-4-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "维多利亚州立图书馆",
+          "placeId": "place-16"
+        },
+        {
+          "id": "day-4-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "墨尔本市政厅",
+          "placeId": "place-17"
+        },
+        {
+          "id": "day-4-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "圣保罗大教堂",
+          "placeId": "place-18"
+        },
+        {
+          "id": "day-4-plan-5",
+          "time": "",
+          "type": "walk",
+          "text": "卡尔顿花园",
+          "placeId": "place-19"
+        },
+        {
+          "id": "day-4-plan-6",
+          "time": "",
+          "type": "walk",
+          "text": "找喜欢的咖啡馆慢坐。"
+        },
+        {
+          "id": "day-4-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "Holiday Inn Melbourne Bourke Street Mall（暂定）"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "day": 5,
+      "date": "2026-11-20",
+      "title": "墨尔本市区与企鹅",
+      "city": "墨尔本",
+      "locations": [
+        "墨尔本"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-5-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "NGV墨尔本国家美术馆 或皇家植物园",
+          "placeId": "place-20"
+        },
+        {
+          "id": "day-5-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "傍晚去 St Kilda",
+          "placeId": "place-21"
+        },
+        {
+          "id": "day-5-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "晚上看小企鹅。",
+          "placeId": "place-22"
+        },
+        {
+          "id": "day-5-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "墨尔本市区酒店（待定）"
+        },
+        {
+          "id": "day-5-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "St Kilda 企鹅预约待确认"
+        }
+      ],
+      "notes": [
+        "企鹅场次与交通以官方公布为准"
+      ]
+    },
+    {
+      "day": 6,
+      "date": "2026-11-21",
+      "title": "大洋路自驾·第一天",
+      "city": "墨尔本",
+      "locations": [
+        "墨尔本"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-6-plan-1",
+          "time": "",
+          "type": "drive",
+          "text": "墨尔本机场取车",
+          "placeId": "place-23"
+        },
+        {
+          "id": "day-6-plan-2",
+          "time": "",
+          "type": "drive",
+          "text": "沿大洋路前往阿波罗湾",
+          "placeId": "place-24"
+        },
+        {
+          "id": "day-6-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "途中安排海岸观景与看考拉。",
+          "placeId": "place-25"
+        },
+        {
+          "id": "day-6-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "阿波罗湾酒店（暂定）"
+        },
+        {
+          "id": "day-6-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "机场取车与自驾（暂定）"
+        }
+      ],
+      "notes": [
+        "预留停车、休息和驾驶时间"
+      ]
+    },
+    {
+      "day": 7,
+      "date": "2026-11-22",
+      "title": "大洋路自驾·第二天",
+      "city": "墨尔本",
+      "locations": [
+        "墨尔本"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-7-plan-1",
+          "time": "",
+          "type": "drive",
+          "text": "阿波罗湾出发"
+        },
+        {
+          "id": "day-7-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "十二门徒岩等沿途景点",
+          "placeId": "place-26"
+        },
+        {
+          "id": "day-7-plan-3",
+          "time": "",
+          "type": "drive",
+          "text": "返回墨尔本机场还车。"
+        },
+        {
+          "id": "day-7-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "墨尔本机场酒店（暂定）"
+        },
+        {
+          "id": "day-7-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "机场还车（暂定）"
+        }
+      ],
+      "notes": [
+        "回程较长，避免塞入市区夜间活动"
+      ]
+    },
+    {
+      "day": 8,
+      "date": "2026-11-23",
+      "title": "飞往悉尼",
+      "city": "悉尼",
+      "locations": [
+        "悉尼"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-8-plan-1",
+          "time": "",
+          "type": "flight",
+          "text": "约 11:10 捷星飞悉尼",
+          "placeId": "place-27"
+        },
+        {
+          "id": "day-8-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "入住 Mascot",
+          "placeId": "place-28"
+        },
+        {
+          "id": "day-8-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "下午在city周围逛街"
+        },
+        {
+          "id": "day-8-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "悉尼鱼市场",
+          "placeId": "place-29"
+        },
+        {
+          "id": "day-8-plan-5",
+          "time": "",
+          "type": "walk",
+          "text": "达令港",
+          "placeId": "place-30"
+        },
+        {
+          "id": "day-8-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "Meriton Suites Mascot Central（暂定）"
+        },
+        {
+          "id": "day-8-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "捷星航班待出票"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "day": 9,
+      "date": "2026-11-24",
+      "title": "悉尼citywalk",
+      "city": "悉尼",
+      "locations": [
+        "悉尼"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-9-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "海德公园",
+          "placeId": "place-31"
+        },
+        {
+          "id": "day-9-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "圣玛丽教堂",
+          "placeId": "place-32"
+        },
+        {
+          "id": "day-9-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "新南威尔士美术馆",
+          "placeId": "place-33"
+        },
+        {
+          "id": "day-9-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "皇家植物园",
+          "placeId": "place-34"
+        },
+        {
+          "id": "day-9-plan-5",
+          "time": "",
+          "type": "walk",
+          "text": "悉尼歌剧院",
+          "placeId": "place-35"
+        },
+        {
+          "id": "day-9-plan-6",
+          "time": "",
+          "type": "walk",
+          "text": "最美车站",
+          "placeId": "place-36"
+        },
+        {
+          "id": "day-9-plan-7",
+          "time": "",
+          "type": "walk",
+          "text": "环形码头",
+          "placeId": "place-37"
+        },
+        {
+          "id": "day-9-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "Meriton Suites Mascot Central（暂定）"
+        },
+        {
+          "id": "day-9-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "歌剧院内部参观可选"
+        }
+      ],
+      "notes": [
+        "步行和咖啡为主，保持轻松"
+      ]
+    },
+    {
+      "day": 10,
+      "date": "2026-11-25",
+      "title": "Kiama 与 Gerringong",
+      "city": "悉尼",
+      "locations": [
+        "悉尼"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-10-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "前往 Kiama 看海岸与喷水洞",
+          "placeId": "place-38"
+        },
+        {
+          "id": "day-10-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "继续到 Gerringong 小镇",
+          "placeId": "place-39"
+        },
+        {
+          "id": "day-10-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "傍晚返回悉尼。"
+        },
+        {
+          "id": "day-10-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "Meriton Suites Mascot Central（暂定）"
+        },
+        {
+          "id": "day-10-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "交通方式待定"
+        }
+      ],
+      "notes": [
+        "这是完整的一日往返"
+      ]
+    },
+    {
+      "day": 11,
+      "date": "2026-11-26",
+      "title": "塔龙加动物园",
+      "city": "悉尼",
+      "locations": [
+        "悉尼"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-11-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "上午乘船前往塔龙加动物园",
+          "placeId": "place-40"
+        },
+        {
+          "id": "day-11-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "bondi海滩",
+          "placeId": "place-41"
+        },
+        {
+          "id": "day-11-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "Meriton Suites Mascot Central（暂定）"
+        },
+        {
+          "id": "day-11-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "动物园门票待订"
+        }
+      ],
+      "notes": [
+        "不叠加远途景点"
+      ]
+    },
+    {
+      "day": 12,
+      "date": "2026-11-27",
+      "title": "北悉尼",
+      "city": "悉尼",
+      "locations": [
+        "悉尼"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-12-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "悉尼大学",
+          "placeId": "place-42"
+        },
+        {
+          "id": "day-12-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "Beulah St Wharf小众冷门码头",
+          "placeId": "place-43"
+        },
+        {
+          "id": "day-12-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "North Sydney Olympic Pool",
+          "placeId": "place-44"
+        },
+        {
+          "id": "day-12-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "Luna Park",
+          "placeId": "place-45"
+        },
+        {
+          "id": "day-12-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "Meriton Suites Mascot Central（暂定）"
+        }
+      ],
+      "notes": [
+        "North Sydney Olympic Pool 营业时间：05:30-21:30\nluna park 营业时间10:00-20:00\n记得当天出门前携带泳衣，泳帽，泳镜，拖鞋，浴巾"
+      ]
+    },
+    {
+      "day": 13,
+      "date": "2026-11-28",
+      "title": "悉尼购物与咖啡",
+      "city": "悉尼",
+      "locations": [
+        "悉尼"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-13-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "上午北悉尼皮划艇",
+          "placeId": "place-46"
+        },
+        {
+          "id": "day-13-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "看情况可以回酒店补觉"
+        },
+        {
+          "id": "day-13-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "吃brunch"
+        },
+        {
+          "id": "day-13-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "Leible咖啡",
+          "placeId": "place-47"
+        },
+        {
+          "id": "day-13-plan-5",
+          "time": "",
+          "type": "walk",
+          "text": "QVB、Strand Arcade、Pitt Street Mall",
+          "placeId": "place-48"
+        },
+        {
+          "id": "day-13-plan-6",
+          "time": "",
+          "type": "walk",
+          "text": "Martin Place 或 Hyde Park 散步",
+          "placeId": "place-49"
+        },
+        {
+          "id": "day-13-plan-7",
+          "time": "",
+          "type": "walk",
+          "text": "咖啡与购物一整天。",
+          "placeId": "place-50"
+        },
+        {
+          "id": "day-13-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "Meriton Suites Mascot Central（暂定）"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "day": 14,
+      "date": "2026-11-29",
+      "title": "悉尼飞广州",
+      "city": "悉尼 → 广州",
+      "locations": [
+        "悉尼 → 广州"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-14-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "上午在酒店附近吃早餐、收拾行李并退房"
+        },
+        {
+          "id": "day-14-plan-2",
+          "time": "",
+          "type": "walk",
+          "text": "暂按 11:15—11:30 从 Mascot 酒店出发，12:10 前抵达悉尼机场 T1"
+        },
+        {
+          "id": "day-14-plan-3",
+          "time": "",
+          "type": "flight",
+          "text": "15:10 乘 CZ8092 飞广州"
+        },
+        {
+          "id": "day-14-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "北京时间 21:50 抵达广州白云机场 T2，广州过夜。"
+        },
+        {
+          "id": "day-14-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "广州机场附近酒店（待定）"
+        },
+        {
+          "id": "day-14-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "CZ8092 已出票：悉尼 15:10 → 广州 21:50"
+        }
+      ],
+      "notes": [
+        "悉尼起飞时间为当地时间，广州抵达时间为北京时间；广州过夜住宿待安排"
+      ]
+    },
+    {
+      "day": 15,
+      "date": "2026-11-30",
+      "title": "广州返回泉州",
+      "city": "广州 → 泉州",
+      "locations": [
+        "广州 → 泉州"
+      ],
+      "tentative": true,
+      "schedule": [
+        {
+          "id": "day-15-plan-1",
+          "time": "",
+          "type": "walk",
+          "text": "08:00 前抵达广州白云机场 T2"
+        },
+        {
+          "id": "day-15-plan-2",
+          "time": "",
+          "type": "flight",
+          "text": "10:00 乘 CZ3283 飞泉州"
+        },
+        {
+          "id": "day-15-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "11:20 抵达泉州机场，旅行结束。"
+        },
+        {
+          "id": "day-15-hotel",
+          "time": "住宿",
+          "type": "note",
+          "text": "—"
+        },
+        {
+          "id": "day-15-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "CZ3283 已出票：广州 10:00 → 泉州 11:20"
+        }
+      ],
+      "notes": [
+        "本日航班时间均为北京时间；广州酒店到机场交通待安排"
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "mel-airport",
+      "name": "Melbourne Airport",
+      "nameZh": "墨尔本机场",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -37.6671,
+        "lng": 144.8336
+      },
+      "query": "Melbourne Airport Australia",
+      "sourceUrl": "https://mapcarta.com/Melbourne_Airport"
+    },
+    {
+      "id": "melbourne",
+      "name": "Melbourne",
+      "nameZh": "墨尔本",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -37.8142,
+        "lng": 144.9632
+      },
+      "query": "Melbourne Australia",
+      "sourceUrl": "https://mapcarta.com/Melbourne"
+    },
+    {
+      "id": "puffing-billy",
+      "name": "Puffing Billy Belgrave",
+      "nameZh": "普芬比利小火车",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -37.90762,
+        "lng": 145.35633
+      },
+      "query": "Puffing Billy Belgrave Australia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Belgrave_(Puffing_Billy)_railway_station"
+    },
+    {
+      "id": "st-kilda",
+      "name": "St Kilda",
+      "nameZh": "圣基尔达",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -37.86383,
+        "lng": 144.98164
+      },
+      "query": "St Kilda Australia",
+      "sourceUrl": "https://mapcarta.com/Melbourne/St_Kilda"
+    },
+    {
+      "id": "apollo-bay",
+      "name": "Apollo Bay",
+      "nameZh": "阿波罗湾",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -38.7547,
+        "lng": 143.6691
+      },
+      "query": "Apollo Bay Australia",
+      "sourceUrl": "https://mapcarta.com/Apollo_Bay"
+    },
+    {
+      "id": "twelve-apostles",
+      "name": "Twelve Apostles",
+      "nameZh": "十二门徒岩",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -38.66583,
+        "lng": 143.10463
+      },
+      "query": "Twelve Apostles Australia",
+      "sourceUrl": "https://mapcarta.com/N448143051"
+    },
+    {
+      "id": "sydney",
+      "name": "Sydney",
+      "nameZh": "悉尼",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -33.86,
+        "lng": 151.2111
+      },
+      "query": "Sydney Australia",
+      "sourceUrl": "https://mapcarta.com/Sydney"
+    },
+    {
+      "id": "syd-airport",
+      "name": "Sydney Airport",
+      "nameZh": "悉尼机场",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -33.94611,
+        "lng": 151.17722
+      },
+      "query": "Sydney Airport Australia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sydney_Airport"
+    },
+    {
+      "id": "kiama",
+      "name": "Kiama",
+      "nameZh": "凯阿马",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -34.67382,
+        "lng": 150.844376
+      },
+      "query": "Kiama Australia",
+      "sourceUrl": "https://www.latlong.net/place/kiama-nsw-australia-24873.html"
+    },
+    {
+      "id": "gerringong",
+      "name": "Gerringong",
+      "nameZh": "格林贡",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -34.7462,
+        "lng": 150.8279
+      },
+      "query": "Gerringong Australia",
+      "sourceUrl": "https://mapcarta.com/Gerringong"
+    },
+    {
+      "id": "taronga",
+      "name": "Taronga Zoo",
+      "nameZh": "塔龙加动物园",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -33.831799,
+        "lng": 151.234604
+      },
+      "query": "Taronga Zoo Australia",
+      "sourceUrl": "https://geonames.nga.mil/geon-ags/rest/services/RESEARCH/GIS_OUTPUT/MapServer/0/3286684/htmlPopup?f=html"
+    },
+    {
+      "id": "bondi",
+      "name": "Bondi Beach",
+      "nameZh": "邦迪海滩",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -33.8907,
+        "lng": 151.27241
+      },
+      "query": "Bondi Beach Australia",
+      "sourceUrl": "https://mapcarta.com/Sydney/Bondi_Beach"
+    },
+    {
+      "id": "north-sydney",
+      "name": "North Sydney",
+      "nameZh": "北悉尼",
+      "countryCode": "AU",
+      "geo": {
+        "lat": -33.83545,
+        "lng": 151.2083
+      },
+      "query": "North Sydney Australia",
+      "sourceUrl": "https://mapcarta.com/16655388"
+    },
+    {
+      "id": "place-13",
+      "name": "普芬比利蒸汽小火车",
+      "nameZh": "普芬比利蒸汽小火车",
+      "query": "普芬比利蒸汽小火车 墨尔本 Australia"
+    },
+    {
+      "id": "place-14",
+      "name": "亚拉河谷酒庄一日游。",
+      "nameZh": "亚拉河谷酒庄一日游。",
+      "query": "亚拉河谷酒庄一日游。 墨尔本 Australia"
+    },
+    {
+      "id": "place-15",
+      "name": "维多利亚女皇市场",
+      "nameZh": "维多利亚女皇市场",
+      "query": "维多利亚女皇市场 墨尔本 Australia"
+    },
+    {
+      "id": "place-16",
+      "name": "维多利亚州立图书馆",
+      "nameZh": "维多利亚州立图书馆",
+      "query": "维多利亚州立图书馆 墨尔本 Australia"
+    },
+    {
+      "id": "place-17",
+      "name": "墨尔本市政厅",
+      "nameZh": "墨尔本市政厅",
+      "query": "墨尔本市政厅 墨尔本 Australia"
+    },
+    {
+      "id": "place-18",
+      "name": "圣保罗大教堂",
+      "nameZh": "圣保罗大教堂",
+      "query": "圣保罗大教堂 墨尔本 Australia"
+    },
+    {
+      "id": "place-19",
+      "name": "卡尔顿花园",
+      "nameZh": "卡尔顿花园",
+      "query": "卡尔顿花园 墨尔本 Australia"
+    },
+    {
+      "id": "place-20",
+      "name": "NGV墨尔本国家美术馆 或皇家植物园",
+      "nameZh": "NGV墨尔本国家美术馆 或皇家植物园",
+      "query": "NGV墨尔本国家美术馆 或皇家植物园 墨尔本 Australia"
+    },
+    {
+      "id": "place-21",
+      "name": "傍晚去 St Kilda",
+      "nameZh": "傍晚去 St Kilda",
+      "query": "傍晚去 St Kilda 墨尔本 Australia"
+    },
+    {
+      "id": "place-22",
+      "name": "晚上看小企鹅。",
+      "nameZh": "晚上看小企鹅。",
+      "query": "晚上看小企鹅。 墨尔本 Australia"
+    },
+    {
+      "id": "place-23",
+      "name": "墨尔本机场取车",
+      "nameZh": "墨尔本机场取车",
+      "query": "墨尔本机场取车 墨尔本 Australia"
+    },
+    {
+      "id": "place-24",
+      "name": "沿大洋路前往阿波罗湾",
+      "nameZh": "沿大洋路前往阿波罗湾",
+      "query": "沿大洋路前往阿波罗湾 墨尔本 Australia"
+    },
+    {
+      "id": "place-25",
+      "name": "途中安排海岸观景与看考拉。",
+      "nameZh": "途中安排海岸观景与看考拉。",
+      "query": "途中安排海岸观景与看考拉。 墨尔本 Australia"
+    },
+    {
+      "id": "place-26",
+      "name": "十二门徒岩等沿途景点",
+      "nameZh": "十二门徒岩等沿途景点",
+      "query": "十二门徒岩等沿途景点 墨尔本 Australia"
+    },
+    {
+      "id": "place-27",
+      "name": "约 11:10 捷星飞悉尼",
+      "nameZh": "约 11:10 捷星飞悉尼",
+      "query": "约 11:10 捷星飞悉尼 悉尼 Australia"
+    },
+    {
+      "id": "place-28",
+      "name": "入住 Mascot",
+      "nameZh": "入住 Mascot",
+      "query": "入住 Mascot 悉尼 Australia"
+    },
+    {
+      "id": "place-29",
+      "name": "悉尼鱼市场",
+      "nameZh": "悉尼鱼市场",
+      "query": "悉尼鱼市场 悉尼 Australia"
+    },
+    {
+      "id": "place-30",
+      "name": "达令港",
+      "nameZh": "达令港",
+      "query": "达令港 悉尼 Australia"
+    },
+    {
+      "id": "place-31",
+      "name": "海德公园",
+      "nameZh": "海德公园",
+      "query": "海德公园 悉尼 Australia"
+    },
+    {
+      "id": "place-32",
+      "name": "圣玛丽教堂",
+      "nameZh": "圣玛丽教堂",
+      "query": "圣玛丽教堂 悉尼 Australia"
+    },
+    {
+      "id": "place-33",
+      "name": "新南威尔士美术馆",
+      "nameZh": "新南威尔士美术馆",
+      "query": "新南威尔士美术馆 悉尼 Australia"
+    },
+    {
+      "id": "place-34",
+      "name": "皇家植物园",
+      "nameZh": "皇家植物园",
+      "query": "皇家植物园 悉尼 Australia"
+    },
+    {
+      "id": "place-35",
+      "name": "悉尼歌剧院",
+      "nameZh": "悉尼歌剧院",
+      "query": "悉尼歌剧院 悉尼 Australia"
+    },
+    {
+      "id": "place-36",
+      "name": "最美车站",
+      "nameZh": "最美车站",
+      "query": "最美车站 悉尼 Australia"
+    },
+    {
+      "id": "place-37",
+      "name": "环形码头",
+      "nameZh": "环形码头",
+      "query": "环形码头 悉尼 Australia"
+    },
+    {
+      "id": "place-38",
+      "name": "前往 Kiama 看海岸与喷水洞",
+      "nameZh": "前往 Kiama 看海岸与喷水洞",
+      "query": "前往 Kiama 看海岸与喷水洞 悉尼 Australia"
+    },
+    {
+      "id": "place-39",
+      "name": "继续到 Gerringong 小镇",
+      "nameZh": "继续到 Gerringong 小镇",
+      "query": "继续到 Gerringong 小镇 悉尼 Australia"
+    },
+    {
+      "id": "place-40",
+      "name": "上午乘船前往塔龙加动物园",
+      "nameZh": "上午乘船前往塔龙加动物园",
+      "query": "上午乘船前往塔龙加动物园 悉尼 Australia"
+    },
+    {
+      "id": "place-41",
+      "name": "bondi海滩",
+      "nameZh": "bondi海滩",
+      "query": "bondi海滩 悉尼 Australia"
+    },
+    {
+      "id": "place-42",
+      "name": "悉尼大学",
+      "nameZh": "悉尼大学",
+      "query": "悉尼大学 悉尼 Australia"
+    },
+    {
+      "id": "place-43",
+      "name": "Beulah St Wharf小众冷门码头",
+      "nameZh": "Beulah St Wharf小众冷门码头",
+      "query": "Beulah St Wharf小众冷门码头 悉尼 Australia"
+    },
+    {
+      "id": "place-44",
+      "name": "North Sydney Olympic Pool",
+      "nameZh": "North Sydney Olympic Pool",
+      "query": "North Sydney Olympic Pool 悉尼 Australia"
+    },
+    {
+      "id": "place-45",
+      "name": "Luna Park",
+      "nameZh": "Luna Park",
+      "query": "Luna Park 悉尼 Australia"
+    },
+    {
+      "id": "place-46",
+      "name": "上午北悉尼皮划艇",
+      "nameZh": "上午北悉尼皮划艇",
+      "query": "上午北悉尼皮划艇 悉尼 Australia"
+    },
+    {
+      "id": "place-47",
+      "name": "Leible咖啡",
+      "nameZh": "Leible咖啡",
+      "query": "Leible咖啡 悉尼 Australia"
+    },
+    {
+      "id": "place-48",
+      "name": "QVB、Strand Arcade、Pitt Street Mall",
+      "nameZh": "QVB、Strand Arcade、Pitt Street Mall",
+      "query": "QVB、Strand Arcade、Pitt Street Mall 悉尼 Australia"
+    },
+    {
+      "id": "place-49",
+      "name": "Martin Place 或 Hyde Park 散步",
+      "nameZh": "Martin Place 或 Hyde Park 散步",
+      "query": "Martin Place 或 Hyde Park 散步 悉尼 Australia"
+    },
+    {
+      "id": "place-50",
+      "name": "咖啡与购物一整天。",
+      "nameZh": "咖啡与购物一整天。",
+      "query": "咖啡与购物一整天。 悉尼 Australia"
+    }
+  ],
+  "restaurants": [],
+  "bookingsAndTickets": [],
+  "ticketPlanning": {
+    "statusStorage": "local",
+    "statusStorageNote": "门票状态默认只保存在当前浏览器。",
+    "items": []
+  },
+  "preTrip": {
+    "packingItems": [
+      {
+        "id": "packing-0",
+        "text": "护照\n签证单（需打印）",
+        "completed": false
+      },
+      {
+        "id": "packing-1",
+        "text": "银行卡与少量现金",
+        "completed": false
+      },
+      {
+        "id": "packing-2",
+        "text": "手机、充电器、充电宝与转换插头",
+        "completed": false
+      },
+      {
+        "id": "packing-3",
+        "text": "驾照与租车资料",
+        "completed": false
+      },
+      {
+        "id": "packing-5",
+        "text": "泳衣、泳镜、泳帽与毛巾",
+        "completed": false
+      },
+      {
+        "id": "packing-7",
+        "text": "一次性内裤、一次性浴巾、一次性四件套",
+        "completed": false
+      }
+    ],
+    "preparationsExplicitlyMentioned": [],
+    "missingNote": ""
+  },
+  "mapLinks": {
+    "providedGoogleMapsLinks": [
+      {
+        "label": "我的 Google 地图收藏",
+        "url": "https://www.google.com/maps/placelists/list/tBdwTK81khP3ge7UrxvoKnfeZxuUSQ?shh=CAE&g_ep=CAISEjI2LjQwLjMuOTg5Mjk1MzUwMBgAILffASqPASw5NDI5NzY5OSw5NDIzMTE4OCw5NDI4MDU2OCwxMDA4MjE1NTksNDcwNzE3MDQsOTQyMTg2NDEsOTQyODIxMzQsMTAwODM1Njk5LDEwMDg0MDY0Niw5NDI4Njg2OSwxMDA4MjAyNDcsMTAwODIyNTA0LDEwMDgwNDk3NiwxMDA4Mzg4NzcsMTIxODE2NDYxQgJDTg%3D%3D&skid=2ffe9add-7178-4fd8-b2b4-ed5d0bc9e9dc&g_st=com.tencent.xin.sharetimeline"
+      }
+    ],
+    "note": "用户分享的地点收藏清单",
+    "cityLevelNavigationDisabled": false,
+    "navigationPolicy": {
+      "noNavigationTypes": [
+        "flight",
+        "note",
+        "rest"
+      ],
+      "selfNavigationTypes": [
+        "drive",
+        "return",
+        "transfer",
+        "check-in",
+        "check-out",
+        "restaurant",
+        "attraction",
+        "walk",
+        "hike"
+      ]
+    },
+    "navigationPlaces": []
+  },
+  "issuesAndUncertainties": [
+    "11月23日墨尔本飞悉尼航班待确认",
+    "酒店与租车均沿用暂定状态，订单详情待补充",
+    "活动门票和预约待确认",
+    "广州过夜住宿待确认"
+  ],
+  "map": {
+    "schemaVersion": "1.0-lite",
+    "mapMode": "template-auto",
+    "templateId": "auto",
+    "disclaimer": "本图仅表达地点的相对方位与路线顺序，不代表真实比例或精确地理边界。",
+    "places": [],
+    "routes": [],
+    "dailyRoutes": [],
+    "region": {
+      "id": "australia",
+      "label": "澳大利亚",
+      "countryCode": "AU"
+    },
+    "defaultRegionId": "melbourne"
+  }
+}

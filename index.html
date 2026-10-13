@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3f6f2">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>小孙小王旅行日记</title>
+  <meta name="description" content="2026年11月16日至30日，小孙小王的墨尔本与悉尼旅行日记。">
+  <link rel="stylesheet" href="styles.css?v=20260910-3">
+  <link rel="stylesheet" href="ledger.css?v=20260910-2">
+  <link rel="stylesheet" href="journal.css">
+  <script src="runtime-storage.js?v=20260910-2" defer></script>
+  <script src="overview-map.js?v=20260910-2" defer></script>
+  <script src="route-ui.js?v=20260910-2" defer></script>
+  <script src="app.js?v=20260910-4" defer></script>
+  <script src="journal.js" defer></script>
+  <script src="ticket-pdf-preview.js?v=20260910-2" defer></script>
+  <script src="ledger.js?v=20260910-3" defer></script>
+  <script src="site-navigation.js?v=20260910-2" defer></script>
+</head>
+<body>
+  <a class="skip-link" id="skip-link" href="#main">跳到主要内容</a>
+  <header class="topbar" id="topbar">
+    <a class="wordmark" id="wordmark" href="#top" aria-label="返回顶部"></a>
+    <nav class="primary-navigation" aria-label="主要模块">
+      <details class="travel-navigation" id="travel-navigation" hidden>
+        <summary id="travel-navigation-trigger">旅行信息</summary>
+        <div class="travel-navigation-menu" role="menu" aria-label="旅行信息栏目">
+          <a href="#flights" role="menuitem" data-module="flights" hidden>航班</a>
+          <a href="#itinerary" role="menuitem" data-module="itinerary" hidden>行程</a>
+          <a href="#drive" role="menuitem" data-module="driving" hidden>自驾</a>
+          <a href="#prep" role="menuitem" data-module="todo" hidden>Todo</a>
+        </div>
+      </details>
+      <a class="primary-navigation__ledger" id="ledger-navigation-link" href="#ledger" data-module="ledger" hidden>记账</a>
+    </nav>
+  </header>
+
+  <main id="main" data-site-view="travel">
+    <section class="hero" id="top" aria-labelledby="trip-title">
+      <div class="hero__eyebrow" id="trip-eyebrow"></div>
+      <h1 id="trip-title">正在载入旅程</h1>
+      <p class="hero__date" id="trip-date"></p>
+      <div class="journal-tools"><a id="journal-maps" target="_blank" rel="noopener noreferrer">我的 Google 地图收藏 ↗</a><button id="journal-export" type="button">导出备份</button><button id="journal-import" type="button">导入备份</button><input id="journal-import-file" type="file" accept=".json,application/json" hidden></div>
+      <p id="journal-status" class="journal-save-status" role="status">修改自动保存在这台设备的浏览器中；换设备前请先导出备份。</p>
+    </section>
+
+    <section class="section prep-section" id="prep" aria-labelledby="prep-title" data-module="todo" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">BEFORE WE GO</p>
+          <h2 id="prep-title">准备物品</h2>
+        </div>
+        <span class="soft-label" id="todo-progress">0 / 0</span>
+      </div>
+      <form class="todo-form" id="todo-form">
+        <input id="todo-input" type="text" maxlength="1000" placeholder="添加一项准备物品" aria-label="准备物品">
+        <button type="submit">添加</button>
+      </form>
+      <p class="journal-save-status">点击“编辑”修改内容和换行，准备好后勾选。</p>
+      <div class="todo-list" id="todo-list"></div>
+    </section>
+
+    <section class="section flights-section" id="flights" aria-labelledby="flights-title" data-module="flights" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">BOARDING</p>
+          <h2 id="flights-title">航班行程</h2>
+        </div>
+        <p class="section-index" id="flight-index" aria-live="polite">1 / 3</p>
+      </div>
+      <div class="flight-carousel" id="flight-carousel" aria-label="航班卡片，可左右滑动"></div>
+      <div class="carousel-dots" id="flight-dots" aria-hidden="true"></div>
+    </section>
+
+    <section class="section itinerary-section" id="itinerary" aria-labelledby="itinerary-title" data-module="itinerary" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">DAY BY DAY</p>
+          <h2 id="itinerary-title">每日行程</h2>
+        </div>
+        <span class="soft-label" id="day-count"></span>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="section drive-section" id="drive" aria-labelledby="drive-title" data-module="driving" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">ON THE ROAD</p>
+          <h2 id="drive-title">自驾信息</h2>
+        </div>
+        <span class="soft-label" id="rental-provider-label">RENTAL</span>
+      </div>
+      <div id="rental-card"></div>
+      <div class="accordion-stack" id="drive-notes"></div>
+    </section>
+
+
+
+    <footer class="footer">
+      <p id="footer-mark"></p>
+      <a href="#top">回到顶部 ↑</a>
+    </footer>
+  </main>
+
+  <main class="ledger-view" id="ledger-view" data-site-view="ledger" data-module="ledger" hidden>
+    <div id="ledger-root"></div>
+  </main>
+
+  <dialog class="map-dialog" id="map-dialog">
+    <button type="button" class="dialog-close" id="map-close" aria-label="关闭路线图">关闭</button>
+    <div id="map-dialog-content"></div>
+  </dialog>
+
+  <dialog class="ticket-dialog" id="ticket-dialog" aria-labelledby="ticket-dialog-title">
+    <header>
+      <div>
+        <span>门票与预订</span>
+        <h2 id="ticket-dialog-title">门票详情</h2>
+      </div>
+      <button type="button" id="ticket-dialog-close" aria-label="关闭门票详情">关闭</button>
+    </header>
+    <div class="ticket-dialog__body" id="ticket-dialog-body"></div>
+  </dialog>
+
+  <div class="place-map-overlay" id="place-map" hidden>
+    <section class="place-map-sheet" role="dialog" aria-modal="true" aria-labelledby="place-map-title">
+      <header><h2 id="place-map-title">地点地图</h2><button id="place-map-close" type="button" aria-label="关闭地点地图">关闭</button></header>
+      <iframe id="place-map-frame" title="地点地图" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <footer><p>地图需要能够访问 Google 的网络。若一直空白，请在系统浏览器中打开。</p><a id="place-map-external" target="_blank" rel="noopener noreferrer">用 Google Maps 打开 ↗</a></footer>
+    </section>
+  </div>
+
+  <dialog class="journal-dialog" id="journal-day-dialog" aria-labelledby="journal-day-title"><form id="journal-day-form"><span class="section-kicker" id="journal-day-date"></span><h2 id="journal-day-title">编辑当天安排</h2><label>主题<input name="title" maxlength="120" required></label><label>行程<textarea name="plan" rows="6" placeholder="每行写一项安排"></textarea></label><label>住宿<input name="hotel" maxlength="300"></label><label>活动 / 预订<textarea name="activity" rows="2"></textarea></label><label>备注<textarea name="notes" rows="4" placeholder="支持换行"></textarea></label><label class="journal-checkbox"><input name="tentative" type="checkbox">仍有暂定安排</label><div class="journal-dialog-actions"><button class="journal-button" id="journal-day-cancel" type="button">取消</button><button class="journal-button" type="submit">保存修改</button></div></form></dialog>
+  <dialog class="journal-dialog" id="journal-todo-dialog" aria-labelledby="journal-todo-title"><form id="journal-todo-form"><h2 id="journal-todo-title">编辑准备物品</h2><label for="journal-todo-text">物品与说明<textarea id="journal-todo-text" rows="5" maxlength="1000" required></textarea></label><div class="journal-dialog-actions"><button class="journal-button" id="journal-todo-cancel" type="button">取消</button><button class="journal-button" type="submit">保存修改</button></div></form></dialog>
+  <div class="loading-error" id="loading-error" hidden>
+    <strong>行程暂时无法载入</strong>
+    <span>请确认 trip-data.json 已通过生成校验，并与网页位于同一目录。</span>
+  </div>
+</body>
+</html>
