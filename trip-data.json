@@ -9,7 +9,7 @@
       "itinerary": true,
       "driving": true,
       "todo": true,
-      "ledger": false
+      "ledger": true
     },
     "language": "zh-CN",
     "persistence": {
@@ -21,7 +21,10 @@
     "title": "小孙小王旅行日记",
     "language": "zh-CN",
     "assets": {},
-    "timeZone": "Asia/Shanghai"
+    "timeZone": "Asia/Shanghai",
+    "journalUpdates": [
+      "20261013-swap-nov18-nov19"
+    ]
   },
   "trip": {
     "status": "draft",
@@ -413,7 +416,7 @@
     {
       "day": 3,
       "date": "2026-11-18",
-      "title": "蒸汽火车与酒庄",
+      "title": "市区景点citywalk",
       "city": "墨尔本",
       "locations": [
         "墨尔本"
@@ -424,37 +427,58 @@
           "id": "day-3-plan-1",
           "time": "",
           "type": "walk",
-          "text": "普芬比利蒸汽小火车",
-          "placeId": "place-13"
+          "text": "维多利亚女皇市场（周三常规日间休市，待另择营业日）",
+          "placeId": "place-15"
         },
         {
           "id": "day-3-plan-2",
           "time": "",
           "type": "walk",
-          "text": "亚拉河谷酒庄一日游。",
-          "placeId": "place-14"
+          "text": "维多利亚州立图书馆",
+          "placeId": "place-16"
+        },
+        {
+          "id": "day-3-plan-3",
+          "time": "",
+          "type": "walk",
+          "text": "墨尔本市政厅",
+          "placeId": "place-17"
+        },
+        {
+          "id": "day-3-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "圣保罗大教堂",
+          "placeId": "place-18"
+        },
+        {
+          "id": "day-3-plan-5",
+          "time": "",
+          "type": "walk",
+          "text": "卡尔顿花园",
+          "placeId": "place-19"
+        },
+        {
+          "id": "day-3-plan-6",
+          "time": "",
+          "type": "walk",
+          "text": "找喜欢的咖啡馆慢坐。"
         },
         {
           "id": "day-3-hotel",
           "time": "住宿",
           "type": "note",
           "text": "Holiday Inn Melbourne Bourke Street Mall（暂定）"
-        },
-        {
-          "id": "day-3-activity",
-          "time": "预订",
-          "type": "note",
-          "text": "飞猪一日游产品待确认"
         }
       ],
       "notes": [
-        "核对火车乘坐区间、酒庄项目、接送点和取消规则"
+        "维多利亚女皇市场周三不营业（日间常规市场）；11月18日先安排其余市区景点和咖啡。营业时间来源：https://qvm.com.au/blog/faq/when-is-the-market-open/"
       ]
     },
     {
       "day": 4,
       "date": "2026-11-19",
-      "title": "市区景点citywalk",
+      "title": "蒸汽火车与酒庄",
       "city": "墨尔本",
       "locations": [
         "墨尔本"
@@ -465,51 +489,32 @@
           "id": "day-4-plan-1",
           "time": "",
           "type": "walk",
-          "text": "维多利亚女皇市场（注意营业时间）",
-          "placeId": "place-15"
+          "text": "普芬比利蒸汽小火车",
+          "placeId": "place-13"
         },
         {
           "id": "day-4-plan-2",
           "time": "",
           "type": "walk",
-          "text": "维多利亚州立图书馆",
-          "placeId": "place-16"
-        },
-        {
-          "id": "day-4-plan-3",
-          "time": "",
-          "type": "walk",
-          "text": "墨尔本市政厅",
-          "placeId": "place-17"
-        },
-        {
-          "id": "day-4-plan-4",
-          "time": "",
-          "type": "walk",
-          "text": "圣保罗大教堂",
-          "placeId": "place-18"
-        },
-        {
-          "id": "day-4-plan-5",
-          "time": "",
-          "type": "walk",
-          "text": "卡尔顿花园",
-          "placeId": "place-19"
-        },
-        {
-          "id": "day-4-plan-6",
-          "time": "",
-          "type": "walk",
-          "text": "找喜欢的咖啡馆慢坐。"
+          "text": "亚拉河谷酒庄一日游。",
+          "placeId": "place-14"
         },
         {
           "id": "day-4-hotel",
           "time": "住宿",
           "type": "note",
           "text": "Holiday Inn Melbourne Bourke Street Mall（暂定）"
+        },
+        {
+          "id": "day-4-activity",
+          "time": "预订",
+          "type": "note",
+          "text": "飞猪一日游产品待确认"
         }
       ],
-      "notes": []
+      "notes": [
+        "核对火车乘坐区间、酒庄项目、接送点和取消规则"
+      ]
     },
     {
       "day": 5,

@@ -4,8 +4,8 @@
   const STORAGE_VERSION = 1;
   const DEFAULT_SETTINGS = Object.freeze({
     baseCurrency: "CNY",
-    commonCurrencies: ["EUR", "CHF", "HKD"],
-    lastCurrency: "CNY"
+    commonCurrencies: ["AUD"],
+    lastCurrency: "AUD"
   });
   const CATEGORIES = Object.freeze(["餐饮", "交通", "住宿", "门票", "购物", "其他"]);
   const AVATAR_COLORS = Object.freeze([

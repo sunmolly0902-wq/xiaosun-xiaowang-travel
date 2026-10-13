@@ -2,6 +2,34 @@ const JOURNAL_KEY = 'xiaosun-xiaowang-australia-journal-v1';
 let journalDay = null;
 let journalTodo = null;
 
+function applyJournalUpdates(data) {
+  const updateId = '20261013-swap-nov18-nov19';
+  const updates = data.metadata.journalUpdates || [];
+  if (!updates.includes(updateId)) {
+    const firstIndex = data.days.findIndex(day => day.date === '2026-11-18');
+    const secondIndex = data.days.findIndex(day => day.date === '2026-11-19');
+    if (firstIndex >= 0 && secondIndex >= 0) {
+      const first = data.days[firstIndex];
+      const second = data.days[secondIndex];
+      const move = (source, target) => ({ ...source, day: target.day, date: target.date,
+        schedule: source.schedule.map(item => ({ ...item, id: item.id.replace(/^day-\d+-/, `day-${target.day}-`) })) });
+      data.days[firstIndex] = move(second, first);
+      data.days[secondIndex] = move(first, second);
+      data.metadata.journalUpdates = [...updates, updateId];
+    }
+  }
+  const cityDay = data.days.find(day => day.date === '2026-11-18');
+  const marketItem = cityDay?.schedule.find(item => item.text.includes('维多利亚女皇市场'));
+  if (marketItem && !updates.includes(updateId)) {
+    marketItem.text = '维多利亚女皇市场（周三常规日间休市，待另择营业日）';
+    const note = '维多利亚女皇市场周三不营业（日间常规市场）；11月18日先安排其余市区景点和咖啡。营业时间来源：https://qvm.com.au/blog/faq/when-is-the-market-open/';
+    if (!cityDay.notes.includes(note)) cityDay.notes.push(note);
+  }
+  data.config.modules.overview = false;
+  data.config.modules.ledger = true;
+  return data;
+}
+
 function validJournal(data) {
   return data?.format === 'xiaosun-xiaowang-travel' && data.version === 1 && data.tripData?.metadata?.tripId === 'xiaosun-xiaowang-australia-2026' && Array.isArray(data.tripData.days) && data.tripData.days.length === 15 && data.tripData.days.every((day, index) => day.day === index + 1 && day.date === `2026-11-${16 + index}` && typeof day.title === 'string' && Array.isArray(day.schedule) && day.schedule.every(item => typeof item.text === 'string') && Array.isArray(day.notes)) && Array.isArray(data.todos) && data.todos.every(todo => typeof todo.id === 'string' && typeof todo.text === 'string' && typeof todo.completed === 'boolean') && new Set(data.todos.map(todo=>todo.id)).size===data.todos.length && Array.isArray(data.purchasedTickets);
 }
@@ -9,9 +37,12 @@ function validJournal(data) {
 function loadJournalState() {
   try {
     const saved = JSON.parse(localStorage.getItem(JOURNAL_KEY));
-    if (validJournal(saved)) state.data = saved.tripData;
+    if (validJournal(saved)) {
+      state.data = applyJournalUpdates(saved.tripData);
+      localStorage.setItem(JOURNAL_KEY, JSON.stringify({ ...saved, tripData: state.data }));
+    }
   } catch {}
-  state.data.config.modules.overview = false;
+  applyJournalUpdates(state.data);
 }
 
 function journalBackup() {
@@ -80,7 +111,7 @@ async function importJournal(file) {
   snapshot.tickets=data.purchasedTickets.map(id=>({id,completed:true}));
   await adapter.save(snapshot);
   state.data=data.tripData;state.todos=data.todos;state.purchasedTickets=new Set(data.purchasedTickets);
-  state.data.config.modules.overview=false;
+  applyJournalUpdates(state.data);
   window.TRAVEL_PLAN_DATA=state.data;
   persistJournal();renderHero();renderFlights();refreshJournalTimeline();renderRental();renderTodoList();
   $('#journal-status').textContent='备份已导入并保存';
