@@ -1894,6 +1894,15 @@
     },
     getSnapshot() {
       return ledgerData ? deepClone(ledgerData) : null;
+    },
+    async replaceSnapshot(snapshot) {
+      const next = normalizeData(snapshot);
+      await ledgerAdapter.save(next, { tripId: ledgerTripId });
+      ledgerData = next;
+      renderApp();
+    },
+    isEditing() {
+      return Boolean(editingBillId || openDialogName || billDraft?.originalAmount || billDraft?.note);
     }
   };
   if (typeof module === "object" && module.exports) module.exports = publicApi;

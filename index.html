@@ -11,15 +11,16 @@
   <meta name="description" content="2026年11月16日至30日，小孙小王的墨尔本与悉尼旅行日记。">
   <link rel="stylesheet" href="styles.css?v=20261013-1">
   <link rel="stylesheet" href="ledger.css?v=20261013-1">
-  <link rel="stylesheet" href="journal.css?v=20261013-3">
+  <link rel="stylesheet" href="journal.css?v=20261014-cloud-1">
   <script src="runtime-storage.js?v=20260910-2" defer></script>
   <script src="overview-map.js?v=20260910-2" defer></script>
   <script src="route-ui.js?v=20260910-2" defer></script>
-  <script src="app.js?v=20261013-3" defer></script>
-  <script src="hotel-bookings.js?v=20261014-1" defer></script>
-  <script src="journal.js?v=20261013-3" defer></script>
+  <script src="app.js?v=20261014-cloud-1" defer></script>
+  <script src="hotel-bookings.js?v=20261014-cloud-1" defer></script>
+  <script src="cloud-sync.js?v=20261014-cloud-1" defer></script>
+  <script src="journal.js?v=20261014-cloud-1" defer></script>
   <script src="ticket-pdf-preview.js?v=20260910-2" defer></script>
-  <script src="ledger.js?v=20261013-2" defer></script>
+  <script src="ledger.js?v=20261014-cloud-1" defer></script>
   <script src="site-navigation.js?v=20261013-3" defer></script>
 </head>
 <body>
@@ -38,8 +39,10 @@
         </div>
       </details>
       <a class="primary-navigation__ledger" id="ledger-navigation-link" href="#ledger" data-module="ledger" hidden>记账</a>
+      <button class="cloud-open" id="cloud-open" type="button">同步</button>
     </nav>
   </header>
+  <p class="cloud-status" id="cloud-status" role="status">本机保存</p>
 
   <main id="main" data-site-view="travel">
     <section class="hero" id="top" aria-labelledby="trip-title">
@@ -68,7 +71,7 @@
 
     <section class="section" id="hotels" aria-labelledby="hotel-bookings-title" data-module="itinerary" hidden>
       <div class="section-heading"><div><p class="section-kicker">OUR STAYS</p><h2 id="hotel-bookings-title">酒店预订</h2></div><span class="soft-label" id="hotel-bookings-progress"></span></div>
-      <p class="journal-save-status">澳洲 12 晚已连续覆盖；广州中转 1 晚需向航空公司提前预订，目前尚未办理。以下依据订单截图和你提供的更新整理，未核验平台最新状态；时间均为酒店当地时间，取消截止另有标注。</p>
+      <p class="journal-save-status" id="hotel-bookings-description"></p>
       <div class="hotel-bookings-list" id="hotel-bookings-list"></div>
     </section>
 
@@ -145,6 +148,8 @@
 
   <dialog class="journal-dialog" id="journal-day-dialog" aria-labelledby="journal-day-title"><form id="journal-day-form"><span class="section-kicker" id="journal-day-date"></span><h2 id="journal-day-title">编辑当天安排</h2><label>主题<input name="title" maxlength="120" required></label><label>行程<textarea name="plan" rows="6" placeholder="每行写一项安排"></textarea></label><label>住宿<input name="hotel" maxlength="300"></label><label>活动 / 预订<textarea name="activity" rows="2"></textarea></label><label>备注<textarea name="notes" rows="4" placeholder="支持换行"></textarea></label><label class="journal-checkbox"><input name="tentative" type="checkbox">仍有暂定安排</label><div class="journal-dialog-actions"><button class="journal-button" id="journal-day-cancel" type="button">取消</button><button class="journal-button" type="submit">保存修改</button></div></form></dialog>
   <dialog class="journal-dialog" id="journal-todo-dialog" aria-labelledby="journal-todo-title"><form id="journal-todo-form"><h2 id="journal-todo-title">编辑准备物品</h2><label for="journal-todo-text">物品与说明<textarea id="journal-todo-text" rows="5" maxlength="1000" required></textarea></label><div class="journal-dialog-actions"><button class="journal-button" id="journal-todo-cancel" type="button">取消</button><button class="journal-button" type="submit">保存修改</button></div></form></dialog>
+  <dialog class="journal-dialog" id="hotel-edit-dialog" aria-labelledby="hotel-edit-title"><form id="hotel-edit-form"><h2 id="hotel-edit-title">编辑酒店预订</h2><label>酒店名称<input name="name" maxlength="200" required></label><label>城市<input name="city" maxlength="80" required></label><label>房型<input name="room" maxlength="200"></label><label>酒店地址<input name="address" maxlength="400" placeholder="填写后可直接打开 Google 地图"></label><label>入住日期<input name="checkIn" type="date" required></label><label>退房日期<input name="checkOut" type="date" required></label><label>入住时间<input name="checkInTime" maxlength="80"></label><label>退房时间<input name="checkOutTime" maxlength="80"></label><label>早餐<input name="breakfast" maxlength="120"></label><label>预订状态<select name="status"><option value="booked">已预订</option><option value="awaiting_confirmation">已提交，等待确认</option><option value="pending">尚未预订</option></select></label><label>备注<textarea name="notes" rows="5"></textarea></label><div class="journal-dialog-actions"><button class="journal-button" id="hotel-edit-cancel" type="button">取消</button><button class="journal-button" type="submit">保存修改</button></div></form></dialog>
+  <dialog class="journal-dialog" id="cloud-dialog" aria-labelledby="cloud-title"><form id="cloud-connect-form"><h2 id="cloud-title">两人共享云端</h2><p>电脑和手机使用同一个同步口令，连接后共同保存行程、酒店、清单和账本。</p><p id="cloud-form-message" role="status"></p><label>同步口令<input name="key" type="password" autocomplete="current-password" required maxlength="200"></label><div class="journal-dialog-actions"><button class="journal-button" id="cloud-cancel" type="button">取消</button><button class="journal-button" type="submit">连接云端</button></div></form><details class="cloud-options"><summary>备份与冲突核对</summary><button class="journal-button" id="cloud-download-before" type="button">下载连接前本机备份</button><button class="journal-button" id="cloud-download-remote" type="button">下载云端核对备份</button><button class="journal-button" id="cloud-use-remote" type="button">载入云端最新版</button><button class="journal-button" id="cloud-disconnect" type="button">断开同步</button></details></dialog>
   <div class="loading-error" id="loading-error" hidden>
     <strong>行程暂时无法载入</strong>
     <span>请确认 trip-data.json 已通过生成校验，并与网页位于同一目录。</span>

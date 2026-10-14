@@ -788,7 +788,9 @@ async function loadSharedState() {
 async function saveSharedChange(collection, value, op = "upsert") {
   const adapter = state.runtimeAdapters[collection];
   if (!adapter) return null;
-  return adapter.applyChange(collection, value, op);
+  const saved = await adapter.applyChange(collection, value, op);
+  window.TravelCloud?.capture?.();
+  return saved;
 }
 
 function saveTodoState() { return Promise.all(state.todos.map((todo) => saveSharedChange("todos", todo))); }

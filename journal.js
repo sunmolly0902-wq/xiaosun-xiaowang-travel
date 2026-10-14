@@ -36,18 +36,27 @@ function validJournal(data) {
 }
 
 function loadJournalState() {
+  const published = state.data;
   try {
     const saved = JSON.parse(localStorage.getItem(JOURNAL_KEY));
-    if (validJournal(saved)) {
+    if (validJournal(saved) && saved.tripData.metadata.contentRevision === published.metadata.contentRevision) {
       state.data = applyJournalUpdates(saved.tripData);
       localStorage.setItem(JOURNAL_KEY, JSON.stringify({ ...saved, tripData: state.data }));
+    } else if (published.metadata.contentRevision) {
+      if (validJournal(saved)) localStorage.setItem(JOURNAL_KEY+':before-mobile-update', JSON.stringify(saved));
+      const runtimeKey='travel-plan:runtime:v1:'+encodeURIComponent(published.metadata.tripId);
+      const runtime=JSON.parse(localStorage.getItem(runtimeKey)||'{}');
+      runtime.todos=published.preTrip.packingItems;
+      runtime.tickets=(published.metadata.initialPurchasedTickets||[]).map(id=>({id,completed:true}));
+      localStorage.setItem(runtimeKey,JSON.stringify(runtime));
+      localStorage.setItem(JOURNAL_KEY,JSON.stringify({format:'xiaosun-xiaowang-travel',version:1,tripData:published,todos:runtime.todos,purchasedTickets:published.metadata.initialPurchasedTickets||[],updatedAt:new Date().toISOString()}));
     }
   } catch {}
   applyJournalUpdates(state.data);
 }
 
 function journalBackup() {
-  return { format:'xiaosun-xiaowang-travel', version:1, tripData:state.data, todos:state.todos, purchasedTickets:[...state.purchasedTickets], updatedAt:new Date().toISOString() };
+  return { format:'xiaosun-xiaowang-travel', version:1, tripData:state.data, todos:state.todos, purchasedTickets:[...state.purchasedTickets], ledger:window.TravelLedger?.getSnapshot?.()||null, updatedAt:new Date().toISOString() };
 }
 
 function persistJournal() {
@@ -55,6 +64,7 @@ function persistJournal() {
     state.data.preTrip.packingItems = state.todos.map(todo=>({...todo}));
     localStorage.setItem(JOURNAL_KEY, JSON.stringify(journalBackup()));
     $('#journal-status').textContent = '已自动保存到这台设备的浏览器';
+    window.TravelCloud?.capture?.();
   } catch { $('#journal-status').textContent = '无法自动保存，请导出备份'; }
 }
 
@@ -112,6 +122,7 @@ async function importJournal(file) {
   snapshot.tickets=data.purchasedTickets.map(id=>({id,completed:true}));
   await adapter.save(snapshot);
   state.data=data.tripData;state.todos=data.todos;state.purchasedTickets=new Set(data.purchasedTickets);
+  if(data.ledger)await window.TravelLedger?.replaceSnapshot?.(data.ledger);
   applyJournalUpdates(state.data);
   window.TRAVEL_PLAN_DATA=state.data;
   persistJournal();renderHero();renderFlights();refreshJournalTimeline();renderRental();renderTodoList();renderHotelBookings();
@@ -120,6 +131,8 @@ async function importJournal(file) {
 
 function setupJournal() {
   renderHotelBookings();
+  setupHotelEditor();
+  window.TravelCloud?.setup?.();
   const map=state.data.mapLinks.providedGoogleMapsLinks[0];
   if(map){$('#journal-maps').href=map.url;$('#journal-maps').textContent=map.label+' ↗';}
   $('#journal-export').onclick=exportJournal;
