@@ -25,7 +25,7 @@
     "journalUpdates": [
       "20261013-swap-nov18-nov19"
     ],
-    "hotelBookingUpdate": "20261013-hotel-orders-v1"
+    "hotelBookingUpdate": "20261014-holiday-inn-merged-v2"
   },
   "trip": {
     "status": "draft",
@@ -192,28 +192,28 @@
       "date": "2026-11-17",
       "name": "Holiday Inn Melbourne Bourke Street Mall by IHG",
       "status": "confirmed",
-      "bookingId": "hotel-mel-first"
+      "bookingId": "hotel-mel-merged"
     },
     {
       "id": "stay-1",
       "date": "2026-11-18",
       "name": "Holiday Inn Melbourne Bourke Street Mall by IHG",
       "status": "confirmed",
-      "bookingId": "hotel-mel-first"
+      "bookingId": "hotel-mel-merged"
     },
     {
       "id": "stay-2",
       "date": "2026-11-19",
       "name": "Holiday Inn Melbourne Bourke Street Mall by IHG",
       "status": "confirmed",
-      "bookingId": "hotel-mel-first"
+      "bookingId": "hotel-mel-merged"
     },
     {
       "id": "stay-3",
       "date": "2026-11-20",
       "name": "Holiday Inn Melbourne Bourke Street Mall by IHG",
       "status": "confirmed",
-      "bookingId": "hotel-mel-extra"
+      "bookingId": "hotel-mel-merged"
     },
     {
       "id": "stay-4",
@@ -414,7 +414,7 @@
           "id": "day-2-hotel",
           "time": "住宿",
           "type": "note",
-          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，依据订单截图）"
+          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，已合并为一个订单）"
         },
         {
           "id": "day-2-activity",
@@ -425,7 +425,7 @@
       ],
       "notes": [
         "抵达当天不安排远途活动，以熟悉酒店周围景点为主",
-        "住宿预订：无障碍标准特大床房 · 1 间 · 2 人。入住 15:00 后；退房 11:00 前。不含早餐。与 20—21 日为两笔订单，房型不同；请向酒店确认能否连续住同一间房。"
+        "住宿预订：标准大床房 · 1 间 · 2 人。入住 15:00 后；退房 11:00 前。不含早餐。11 月 17—21 日连续入住 4 晚，已合并为一个订单。"
       ]
     },
     {
@@ -483,12 +483,11 @@
           "id": "day-3-hotel",
           "time": "住宿",
           "type": "note",
-          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，依据订单截图）"
+          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，已合并为一个订单）"
         }
       ],
       "notes": [
-        "维多利亚女皇市场周三不营业（日间常规市场）；11月18日先安排其余市区景点和咖啡。营业时间来源：https://qvm.com.au/blog/faq/when-is-the-market-open/",
-        "USER_NOTE"
+        "维多利亚女皇市场周三不营业（日间常规市场）；11月18日先安排其余市区景点和咖啡。营业时间来源：https://qvm.com.au/blog/faq/when-is-the-market-open/"
       ]
     },
     {
@@ -519,7 +518,7 @@
           "id": "day-4-hotel",
           "time": "住宿",
           "type": "note",
-          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，依据订单截图）"
+          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，已合并为一个订单）"
         },
         {
           "id": "day-4-activity",
@@ -567,7 +566,7 @@
           "id": "day-5-hotel",
           "time": "住宿",
           "type": "note",
-          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，依据订单截图）"
+          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，已合并为一个订单）"
         },
         {
           "id": "day-5-activity",
@@ -577,8 +576,7 @@
         }
       ],
       "notes": [
-        "企鹅场次与交通以官方公布为准",
-        "住宿预订：标准房 · 1 间 · 2 人 · 床型随机安排。入住 15:00 后；退房 11:00 前。不含早餐。与前三晚房型不同，20 日向前台确认是否需要换房；若换房，可询问行李寄存。"
+        "企鹅场次与交通以官方公布为准"
       ]
     },
     {
@@ -1596,39 +1594,21 @@
   },
   "hotelBookings": [
     {
-      "id": "hotel-mel-first",
+      "id": "hotel-mel-merged",
       "name": "Holiday Inn Melbourne Bourke Street Mall by IHG",
       "city": "墨尔本",
       "checkIn": "2026-11-17",
-      "checkOut": "2026-11-20",
-      "nights": 3,
-      "status": "booked",
-      "evidence": "已提供订单",
-      "room": "无障碍标准特大床房 · 1 间 · 2 人",
-      "address": "296 Little Collins Street, Melbourne",
-      "checkInTime": "15:00 后",
-      "checkOutTime": "11:00 前",
-      "breakfast": "不含早餐",
-      "notes": [
-        "与 20—21 日为两笔订单，房型不同；请向酒店确认能否连续住同一间房。"
-      ]
-    },
-    {
-      "id": "hotel-mel-extra",
-      "name": "Holiday Inn Melbourne Bourke Street Mall by IHG",
-      "city": "墨尔本",
-      "checkIn": "2026-11-20",
       "checkOut": "2026-11-21",
-      "nights": 1,
+      "nights": 4,
       "status": "booked",
-      "evidence": "已提供订单",
-      "room": "标准房 · 1 间 · 2 人 · 床型随机安排",
+      "evidence": "已合并订单 · 用户确认",
+      "room": "标准大床房 · 1 间 · 2 人",
       "address": "296 Little Collins Street, Melbourne",
       "checkInTime": "15:00 后",
       "checkOutTime": "11:00 前",
       "breakfast": "不含早餐",
       "notes": [
-        "与前三晚房型不同，20 日向前台确认是否需要换房；若换房，可询问行李寄存。"
+        "11 月 17—21 日连续入住 4 晚，已合并为一个订单。"
       ]
     },
     {
