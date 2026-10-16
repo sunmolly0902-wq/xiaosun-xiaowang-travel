@@ -112,6 +112,23 @@ function exportJournal() {
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 
+function renderUnplannedAttractions() {
+  const input=$('#unplanned-text');
+  if(input)input.value=state.data.unplannedAttractions?.[0]?.text || '';
+}
+
+function setupUnplannedAttractions() {
+  const input=$('#unplanned-text'),form=$('#unplanned-form');
+  if(!input||!form)return;
+  const save=()=>{
+    state.data.unplannedAttractions=[{id:'unplanned-attractions',text:input.value}];
+    persistJournal();
+  };
+  input.addEventListener('input',save);
+  form.addEventListener('submit',event=>{event.preventDefault();save();input.blur();event.submitter?.blur();});
+  renderUnplannedAttractions();
+}
+
 async function importJournal(file) {
   const data=JSON.parse(await file.text());
   if(!validJournal(data))throw new Error('请选择本旅行网页导出的有效 JSON 备份。');
@@ -125,13 +142,14 @@ async function importJournal(file) {
   if(data.ledger)await window.TravelLedger?.replaceSnapshot?.(data.ledger);
   applyJournalUpdates(state.data);
   window.TRAVEL_PLAN_DATA=state.data;
-  persistJournal();renderHero();renderFlights();refreshJournalTimeline();renderRental();renderTodoList();renderHotelBookings();
+  persistJournal();renderHero();renderFlights();refreshJournalTimeline();renderRental();renderTodoList();renderHotelBookings();renderUnplannedAttractions();
   $('#journal-status').textContent='备份已导入并保存';
 }
 
 function setupJournal() {
   renderHotelBookings();
   setupHotelEditor();
+  setupUnplannedAttractions();
   window.TravelCloud?.setup?.();
   const map=state.data.mapLinks.providedGoogleMapsLinks[0];
   if(map){$('#journal-maps').href=map.url;$('#journal-maps').textContent=map.label+' ↗';}

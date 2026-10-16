@@ -11,17 +11,17 @@
   <meta name="description" content="2026年11月16日至30日，小孙小王的墨尔本与悉尼旅行日记。">
   <link rel="stylesheet" href="styles.css?v=20261013-1">
   <link rel="stylesheet" href="ledger.css?v=20261013-1">
-  <link rel="stylesheet" href="journal.css?v=20261014-cloud-1">
+  <link rel="stylesheet" href="journal.css?v=20261016-ideas-1">
   <script src="runtime-storage.js?v=20260910-2" defer></script>
   <script src="overview-map.js?v=20260910-2" defer></script>
   <script src="route-ui.js?v=20260910-2" defer></script>
   <script src="app.js?v=20261014-cloud-1" defer></script>
   <script src="hotel-bookings.js?v=20261014-cloud-1" defer></script>
-  <script src="cloud-sync.js?v=20261014-cloud-1" defer></script>
-  <script src="journal.js?v=20261014-cloud-1" defer></script>
+  <script src="cloud-sync.js?v=20261016-ideas-1" defer></script>
+  <script src="journal.js?v=20261016-ideas-1" defer></script>
   <script src="ticket-pdf-preview.js?v=20260910-2" defer></script>
   <script src="ledger.js?v=20261014-cloud-1" defer></script>
-  <script src="site-navigation.js?v=20261013-3" defer></script>
+  <script src="site-navigation.js?v=20261016-ideas-1" defer></script>
 </head>
 <body>
   <a class="skip-link" id="skip-link" href="#main">跳到主要内容</a>
@@ -34,6 +34,7 @@
           <a href="#flights" role="menuitem" data-module="flights" hidden>航班</a>
           <a href="#itinerary" role="menuitem" data-module="itinerary" hidden>行程</a>
           <a href="#hotels" role="menuitem" data-module="itinerary" hidden>酒店</a>
+          <a href="#unplanned" role="menuitem" data-module="itinerary" hidden>待安排景点</a>
           <a href="#drive" role="menuitem" data-module="driving" hidden>自驾</a>
           <a href="#prep" role="menuitem" data-module="todo" hidden>Todo</a>
         </div>
@@ -96,6 +97,16 @@
         <span class="soft-label" id="day-count"></span>
       </div>
       <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="section" id="unplanned" aria-labelledby="unplanned-title" data-module="itinerary" hidden>
+      <div class="section-heading"><div><p class="section-kicker">MAYBE NEXT</p><h2 id="unplanned-title">待安排景点</h2></div></div>
+      <p class="journal-save-status" id="unplanned-help">记下还没放进行程、但可能会去的地方。支持换行，输入后自动保存；连接云端后两人共享。</p>
+      <form class="unplanned-form" id="unplanned-form">
+        <label for="unplanned-text">景点与备注</label>
+        <textarea id="unplanned-text" rows="7" maxlength="10000" aria-describedby="unplanned-help" placeholder="每行记录一个景点，也可以写上城市、想去的理由或备选时间。"></textarea>
+        <div class="journal-dialog-actions"><button class="journal-button" type="submit">保存景点</button></div>
+      </form>
     </section>
 
     <section class="section drive-section" id="drive" aria-labelledby="drive-title" data-module="driving" hidden>
