@@ -40,6 +40,13 @@ function loadJournalState() {
   try {
     const saved = JSON.parse(localStorage.getItem(JOURNAL_KEY));
     if (validJournal(saved) && saved.tripData.metadata.contentRevision === published.metadata.contentRevision) {
+      // Flight cards have no manual editor: fill the newly supplied booking in
+      // cached journals while retaining the user's daily plans and ledger.
+      const suppliedFlight=published.flights.find(flight=>flight.id==='JQ512');
+      if(suppliedFlight&&!saved.tripData.flights.some(flight=>flight.id===suppliedFlight.id)){
+        saved.tripData.flights.push(JSON.parse(JSON.stringify(suppliedFlight)));
+        saved.tripData.flightJourneys=saved.tripData.flightJourneys.map(journey=>journey.id==='domestic'?JSON.parse(JSON.stringify(published.flightJourneys.find(item=>item.id==='domestic'))):journey);
+      }
       state.data = applyJournalUpdates(saved.tripData);
       localStorage.setItem(JOURNAL_KEY, JSON.stringify({ ...saved, tripData: state.data }));
     } else if (published.metadata.contentRevision) {

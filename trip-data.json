@@ -65,13 +65,9 @@
     {
       "id": "domestic",
       "title": "11月23日 墨尔本 → 悉尼",
-      "placeholder": true,
-      "status": "pending",
-      "description": "暂选捷星约 11:10 出发；航班号、抵达时间和行李额度待确认。",
-      "missingFields": [
-        "flightNumber",
-        "arrivalTime"
-      ]
+      "status": "confirmed",
+      "bookingStatus": "已提供订单截图",
+      "description": "时间均为当地时间。截图预计到达时间为 12:15，并非实时动态；实际以机场为准。行李额度待核对订单。"
     },
     {
       "id": "return",
@@ -186,6 +182,36 @@
         "terminal": ""
       },
       "bookingStatus": "已出票"
+    },
+    {
+      "id": "JQ512",
+      "journeyId": "domestic",
+      "sequence": 1,
+      "airline": {
+        "nameZh": "捷星澳洲航空",
+        "name": "Jetstar Airways"
+      },
+      "flightNumber": "JQ512",
+      "departure": {
+        "airportCode": "MEL",
+        "city": "墨尔本",
+        "date": "2026-11-23",
+        "time": "11:10",
+        "utcOffset": "+11:00",
+        "terminal": "T4",
+        "timeType": "planned"
+      },
+      "arrival": {
+        "airportCode": "SYD",
+        "city": "悉尼",
+        "date": "2026-11-23",
+        "time": "12:35",
+        "estimatedTime": "12:15",
+        "utcOffset": "+11:00",
+        "terminal": "T2",
+        "timeType": "planned"
+      },
+      "bookingStatus": "已提供订单截图"
     }
   ],
   "accommodations": [
@@ -685,7 +711,7 @@
           "id": "day-8-plan-1",
           "time": "",
           "type": "flight",
-          "text": "约 11:10 捷星飞悉尼",
+          "text": "捷星 JQ512：11:10 墨尔本 MEL T4 → 12:35 悉尼 SYD T2（计划时间）",
           "placeId": "place-27"
         },
         {
@@ -725,11 +751,12 @@
           "id": "day-8-activity",
           "time": "预订",
           "type": "note",
-          "text": "捷星航班待出票"
+          "text": "JQ512 已提供订单截图；行李额度待核对订单"
         }
       ],
       "notes": [
-        "住宿预订：一卧室特大床套房 · 1 间。订单截图未显示。入住与退房时间、早餐及取消政策，待补充订单详情。"
+        "住宿预订：一卧室特大床套房 · 1 间。订单截图未显示。入住与退房时间、早餐及取消政策，待补充订单详情。",
+        "捷星澳洲航空 JQ512：11 月 23 日 11:10 从墨尔本 MEL T4 计划起飞，12:35 抵达悉尼 SYD T2；截图显示预计到达 12:15（非实时，实际以机场为准）。时间均为当地时间；行李额度待核对订单。"
       ]
     },
     {
@@ -1352,9 +1379,9 @@
     },
     {
       "id": "place-27",
-      "name": "约 11:10 捷星飞悉尼",
-      "nameZh": "约 11:10 捷星飞悉尼",
-      "query": "约 11:10 捷星飞悉尼 悉尼 Australia"
+      "name": "捷星 JQ512 墨尔本 T4 → 悉尼 T2",
+      "nameZh": "捷星 JQ512 墨尔本 T4 → 悉尼 T2",
+      "query": "Melbourne Airport Terminal 4"
     },
     {
       "id": "place-28",
@@ -1568,7 +1595,6 @@
     "navigationPlaces": []
   },
   "issuesAndUncertainties": [
-    "11月23日墨尔本飞悉尼航班待确认",
     "酒店与租车均沿用暂定状态，订单详情待补充",
     "活动门票和预约待确认",
     "广州过夜住宿待确认"

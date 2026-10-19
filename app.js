@@ -219,9 +219,9 @@ function relativeFlightDate(date, journeyStartDate) {
 function flightStopMarkup(stop, position, journeyStartDate) {
   let timing;
   if (position === 0) {
-    timing = `<span>${escapeHtml(relativeFlightDate(stop.departure.date, journeyStartDate))}</span><b>${escapeHtml(stop.departure.time)} 起飞</b>`;
+    timing = `<span>${escapeHtml(relativeFlightDate(stop.departure.date, journeyStartDate))}</span><b>${escapeHtml(stop.departure.time)} ${stop.departure.timeType === 'planned' ? '计划起飞' : '起飞'}</b>`;
   } else if (position === stop.totalStops - 1) {
-    timing = `<span>${escapeHtml(relativeFlightDate(stop.arrival.date, journeyStartDate))}</span><b>${escapeHtml(stop.arrival.time)} 抵达</b>`;
+    timing = `<span>${escapeHtml(relativeFlightDate(stop.arrival.date, journeyStartDate))}</span><b>${escapeHtml(stop.arrival.time)} ${stop.arrival.timeType === 'planned' ? '计划抵达' : '抵达'}</b>${stop.arrival.estimatedTime ? `<span>截图预计 ${escapeHtml(stop.arrival.estimatedTime)} 抵达</span>` : ''}`;
   } else {
     const nextFlight = stop.nextFlight;
     const connection = nextFlight.connectionFromPrevious || {};
@@ -236,7 +236,7 @@ function flightStopMarkup(stop, position, journeyStartDate) {
   return `
     <div class="flight-stop${position > 0 && position < stop.totalStops - 1 ? " is-transfer" : ""}">
       <span class="flight-stop__code">${escapeHtml(stop.airport.airportCode)}</span>
-      <span class="flight-stop__city">${escapeHtml(airportCity(stop.airport))}</span>
+      <span class="flight-stop__city">${escapeHtml(airportCity(stop.airport))}${stop.airport.terminal ? ` · <span class="flight-stop__terminal">${escapeHtml(stop.airport.terminal)}</span>` : ''}</span>
       <span class="flight-stop__dot" aria-hidden="true"></span>
       <div class="flight-stop__timing">${timing}</div>
     </div>
@@ -322,6 +322,7 @@ function flightCard(journey, index) {
       <div class="flight-flow" style="--route-columns: ${stops.map((_, stopIndex) => stopIndex < stops.length - 1 ? "minmax(0,1fr) minmax(34px,.5fr)" : "minmax(0,1fr)").join(" ")}">
         ${routeItems.join("")}
       </div>
+      ${journey.description ? `<p class="flight-detail-note">${escapeHtml(journey.description)}</p>` : ''}
       <div class="flight-card__countdown-row">
         <div class="flight-countdown" data-countdown-journey="${escapeHtml(journey.id)}">
           <span>${escapeHtml(status.label)}</span>
