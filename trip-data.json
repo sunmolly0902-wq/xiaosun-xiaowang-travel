@@ -318,28 +318,30 @@
         "currency": ""
       },
       "pickup": {
-        "utcOffset": "+11:00",
         "date": "2026-11-21",
         "time": "",
-        "location": "墨尔本机场（暂定）",
-        "address": ""
+        "address": "",
+        "utcOffset": "+11:00",
+        "location": "墨尔本机场（暂定）"
       },
       "unlimitedKilometers": null,
       "status": "pending",
       "dropoff": {
-        "deadlineWarning": "取还车时间、租车公司、车型、价格与保险待确认",
         "vehicleReturnPoint": "墨尔本机场（暂定）",
-        "date": "2026-11-22",
+        "recommendedArrivalTime": "",
         "timeZoneLabel": "墨尔本当地时间",
         "location": "墨尔本机场（暂定）",
-        "recommendedArrivalTime": "",
+        "date": "2026-11-22",
         "time": "",
+        "deadlineWarning": "取还车时间、租车公司、车型、价格与保险待确认",
         "utcOffset": "+11:00"
       },
       "vehicle": {
         "example": "车型待确认",
         "class": ""
-      }
+      },
+      "routeTitle": "大洋路自驾",
+      "accommodationNote": "21 日住 Apollo Bay Motel & Apartments，22 日住 Ibis Styles Melbourne Airport，两晚均已预订。"
     },
     "rentalChecklist": [],
     "drivingNotes": [
