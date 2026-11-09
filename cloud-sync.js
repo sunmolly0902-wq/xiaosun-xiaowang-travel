@@ -2,10 +2,10 @@
   const STORAGE='xiaosun-xiaowang-cloud-v1';
   const clone=value=>JSON.parse(JSON.stringify(value));
   const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
-  const FIELDS={days:['title','city','locations','tentative','schedule','notes'],hotels:['name','city','checkIn','checkOut','nights','status','evidence','room','address','checkInTime','checkOutTime','breakfast','notes'],todos:['text','completed'],tickets:['completed'],bills:['originalAmountCents','baseAmountCents','currency','category','note','orderedAt','payerId','participantIds','createdAt','updatedAt'],travelers:['name','initial','color'],settings:['baseCurrency','commonCurrencies','lastCurrency']};
+  const FIELDS={days:['title','city','locations','tentative','schedule','notes'],hotels:['name','city','checkIn','checkOut','nights','status','evidence','room','address','checkInTime','checkOutTime','breakfast','notes'],rental:['rentalCar'],todos:['text','completed'],tickets:['completed'],bills:['originalAmountCents','baseAmountCents','currency','category','note','orderedAt','payerId','participantIds','createdAt','updatedAt'],travelers:['name','initial','color'],settings:['baseCurrency','commonCurrencies','lastCurrency']};
   FIELDS.ideas=['text'];
   let endpoint='',token='',revision=0,baseline=null,pending=[],busy=false,connected=false,conflicted=false,deferred=false;
-  const list=(snapshot,key)=>key==='ideas'?(snapshot.tripData.unplannedAttractions||[{id:'unplanned-attractions',text:''}]):key==='days'?snapshot.tripData.days:key==='hotels'?snapshot.tripData.hotelBookings:key==='tickets'?snapshot.purchasedTickets.map(id=>({id,completed:true})):key==='todos'?snapshot.todos:snapshot.ledger?.[key]||[];
+  const list=(snapshot,key)=>key==='ideas'?(snapshot.tripData.unplannedAttractions||[{id:'unplanned-attractions',text:''}]):key==='rental'?[{id:'rental-info',rentalCar:snapshot.tripData.groundTransport?.rentalCar||{}}]:key==='days'?snapshot.tripData.days:key==='hotels'?snapshot.tripData.hotelBookings:key==='tickets'?snapshot.purchasedTickets.map(id=>({id,completed:true})):key==='todos'?snapshot.todos:snapshot.ledger?.[key]||[];
   const id=(key,item)=>String(key==='days'?item.day:item.id);
   function diff(before,after){
     const changes=[];

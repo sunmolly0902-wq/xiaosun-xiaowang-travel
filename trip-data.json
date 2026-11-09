@@ -310,35 +310,35 @@
   "groundTransport": {
     "rentalCar": {
       "placeholder": true,
-      "status": "pending",
       "company": "租车公司待确认",
-      "rentalPeriodDays": 2,
-      "vehicle": {
-        "example": "车型待确认",
-        "class": ""
-      },
-      "unlimitedKilometers": null,
-      "price": {
-        "currency": "",
-        "payAtCounter": null
-      },
       "insurance": [],
+      "rentalPeriodDays": 2,
+      "price": {
+        "payAtCounter": null,
+        "currency": ""
+      },
       "pickup": {
+        "utcOffset": "+11:00",
         "date": "2026-11-21",
         "time": "",
         "location": "墨尔本机场（暂定）",
-        "address": "",
+        "address": ""
+      },
+      "unlimitedKilometers": null,
+      "status": "pending",
+      "dropoff": {
+        "deadlineWarning": "取还车时间、租车公司、车型、价格与保险待确认",
+        "vehicleReturnPoint": "墨尔本机场（暂定）",
+        "date": "2026-11-22",
+        "timeZoneLabel": "墨尔本当地时间",
+        "location": "墨尔本机场（暂定）",
+        "recommendedArrivalTime": "",
+        "time": "",
         "utcOffset": "+11:00"
       },
-      "dropoff": {
-        "date": "2026-11-22",
-        "time": "",
-        "location": "墨尔本机场（暂定）",
-        "vehicleReturnPoint": "墨尔本机场（暂定）",
-        "utcOffset": "+11:00",
-        "timeZoneLabel": "墨尔本当地时间",
-        "deadlineWarning": "取还车时间、租车公司、车型、价格与保险待确认",
-        "recommendedArrivalTime": ""
+      "vehicle": {
+        "example": "车型待确认",
+        "class": ""
       }
     },
     "rentalChecklist": [],
@@ -430,7 +430,7 @@
           "id": "day-2-plan-3",
           "time": "",
           "type": "walk",
-          "text": "入境、去酒店"
+          "text": "入境、去酒店入住"
         },
         {
           "id": "day-2-plan-4",
@@ -439,10 +439,28 @@
           "text": "酒店周围逛逛"
         },
         {
+          "id": "day-2-plan-5",
+          "time": "",
+          "type": "walk",
+          "text": "Royal Arcade（b1 pitstore f1周边）"
+        },
+        {
+          "id": "day-2-plan-6",
+          "time": "",
+          "type": "walk",
+          "text": "Q.V Melbourne（Incu）"
+        },
+        {
+          "id": "day-2-plan-7",
+          "time": "",
+          "type": "walk",
+          "text": "Emporium Melbourne"
+        },
+        {
           "id": "day-2-hotel",
           "time": "住宿",
           "type": "note",
-          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，已合并为一个订单）"
+          "text": "Holiday Inn Melbourne Bourke Street Mall by IHG"
         },
         {
           "id": "day-2-activity",
@@ -452,8 +470,7 @@
         }
       ],
       "notes": [
-        "抵达当天不安排远途活动，以熟悉酒店周围景点为主\n住宿预订：标准大床房 · 1 间 · 2 人。入住 15:00 后；退房 11:00 前。不含早餐。",
-        "住宿预订：标准大床房 · 1 间 · 2 人。入住 15:00 后；退房 11:00 前。不含早餐。11 月 17—21 日连续入住 4 晚，已合并为一个订单。"
+        "抵达当天不安排远途活动，以熟悉酒店周围商圈为主"
       ]
     },
     {
@@ -470,32 +487,25 @@
           "id": "day-3-plan-1",
           "time": "",
           "type": "walk",
-          "text": "维多利亚女皇市场（周三常规日间休市，待另择营业日）",
-          "placeId": "place-15"
-        },
-        {
-          "id": "day-3-plan-2",
-          "time": "",
-          "type": "walk",
           "text": "维多利亚州立图书馆",
           "placeId": "place-16"
         },
         {
-          "id": "day-3-plan-3",
+          "id": "day-3-plan-2",
           "time": "",
           "type": "walk",
           "text": "墨尔本市政厅",
           "placeId": "place-17"
         },
         {
-          "id": "day-3-plan-4",
+          "id": "day-3-plan-3",
           "time": "",
           "type": "walk",
           "text": "圣保罗大教堂",
           "placeId": "place-18"
         },
         {
-          "id": "day-3-plan-5",
+          "id": "day-3-plan-4",
           "time": "",
           "type": "walk",
           "text": "卡尔顿花园",
@@ -515,7 +525,7 @@
     {
       "day": 4,
       "date": "2026-11-19",
-      "title": "蒸汽火车与酒庄",
+      "title": "蒸汽火车与小企鹅",
       "city": "墨尔本",
       "locations": [
         "墨尔本"
@@ -526,15 +536,7 @@
           "id": "day-4-plan-1",
           "time": "",
           "type": "walk",
-          "text": "普芬比利蒸汽小火车",
-          "placeId": "place-13"
-        },
-        {
-          "id": "day-4-plan-2",
-          "time": "",
-          "type": "walk",
-          "text": "亚拉河谷酒庄一日游。",
-          "placeId": "place-14"
+          "text": "普芬比利蒸汽小火车一日游"
         },
         {
           "id": "day-4-hotel",
@@ -556,7 +558,7 @@
     {
       "day": 5,
       "date": "2026-11-20",
-      "title": "墨尔本市区与企鹅",
+      "title": "墨尔本市区",
       "city": "墨尔本",
       "locations": [
         "墨尔本"
@@ -567,39 +569,46 @@
           "id": "day-5-plan-1",
           "time": "",
           "type": "walk",
-          "text": "NGV墨尔本国家美术馆 或皇家植物园",
-          "placeId": "place-20"
+          "text": "维多利亚女皇市场"
         },
         {
           "id": "day-5-plan-2",
           "time": "",
           "type": "walk",
-          "text": "傍晚去 St Kilda",
-          "placeId": "place-21"
+          "text": "墨尔本大学"
         },
         {
           "id": "day-5-plan-3",
           "time": "",
           "type": "walk",
-          "text": "晚上看小企鹅。",
-          "placeId": "place-22"
+          "text": "Good Measure（喝mont blanc）"
+        },
+        {
+          "id": "day-5-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "NGV墨尔本国家美术馆"
+        },
+        {
+          "id": "day-5-plan-5",
+          "time": "",
+          "type": "walk",
+          "text": "皇家植物园"
+        },
+        {
+          "id": "day-5-plan-6",
+          "time": "",
+          "type": "walk",
+          "text": "傍晚去 St Kilda/Point Ormond Lookout看日落"
         },
         {
           "id": "day-5-hotel",
           "time": "住宿",
           "type": "note",
           "text": "Holiday Inn Melbourne Bourke Street Mall by IHG（已预订，已合并为一个订单）"
-        },
-        {
-          "id": "day-5-activity",
-          "time": "预订",
-          "type": "note",
-          "text": "St Kilda 企鹅预约待确认"
         }
       ],
-      "notes": [
-        "企鹅场次与交通以官方公布为准"
-      ]
+      "notes": []
     },
     {
       "day": 6,
@@ -609,28 +618,61 @@
       "locations": [
         "墨尔本"
       ],
-      "tentative": true,
+      "tentative": false,
       "schedule": [
         {
           "id": "day-6-plan-1",
           "time": "",
-          "type": "drive",
-          "text": "墨尔本机场取车",
-          "placeId": "place-23"
+          "type": "walk",
+          "text": "墨尔本取车"
         },
         {
           "id": "day-6-plan-2",
           "time": "",
-          "type": "drive",
-          "text": "沿大洋路前往阿波罗湾",
-          "placeId": "place-24"
+          "type": "walk",
+          "text": "吉朗（午餐）"
         },
         {
           "id": "day-6-plan-3",
           "time": "",
           "type": "walk",
-          "text": "途中安排海岸观景与看考拉。",
-          "placeId": "place-25"
+          "text": "小红帽灯塔"
+        },
+        {
+          "id": "day-6-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "大洋路纪念拱门"
+        },
+        {
+          "id": "day-6-plan-5",
+          "time": "",
+          "type": "walk",
+          "text": "Teddy's Lookout观景台"
+        },
+        {
+          "id": "day-6-plan-6",
+          "time": "",
+          "type": "walk",
+          "text": "Kennett River Koala Walk（野生考拉）"
+        },
+        {
+          "id": "day-6-plan-7",
+          "time": "",
+          "type": "walk",
+          "text": "Marriner's Lookout（抵达阿波罗湾前）"
+        },
+        {
+          "id": "day-6-plan-8",
+          "time": "",
+          "type": "walk",
+          "text": "阿波罗湾（可带晚餐去海边吃）"
+        },
+        {
+          "id": "day-6-plan-9",
+          "time": "",
+          "type": "walk",
+          "text": "如果抵达时间较早可考虑直接开往十二门徒看日落（已预约7点游客中心入场）"
         },
         {
           "id": "day-6-hotel",
@@ -642,12 +684,11 @@
           "id": "day-6-activity",
           "time": "预订",
           "type": "note",
-          "text": "机场取车与自驾（暂定）"
+          "text": "市区取车与自驾"
         }
       ],
       "notes": [
-        "预留停车、休息和驾驶时间",
-        "住宿预订：特大床房 · 1 间 · 2 人。入住 14:00—18:00；退房 10:00 前。不含早餐。若预计 18:00 后到店，请提前联系酒店确认晚到入住方式。 截图显示免费取消截止：北京时间 11 月 20 日 11:00，具体以订单页面为准。"
+        "预留停车、休息和驾驶时间\n住宿预订：特大床房 · 1 间 · 2 人。入住 14:00—18:00；退房 10:00 前。不含早餐。若预计 18:00 后到店，请提前联系酒店确认晚到入住方式。 截图显示免费取消截止：北京时间 11 月 20 日 11:00，具体以订单页面为准。"
       ]
     },
     {
@@ -670,14 +711,19 @@
           "id": "day-7-plan-2",
           "time": "",
           "type": "walk",
-          "text": "十二门徒岩等沿途景点",
-          "placeId": "place-26"
+          "text": "十二门徒岩（已预约12点游客中心停车）"
         },
         {
           "id": "day-7-plan-3",
           "time": "",
-          "type": "drive",
-          "text": "返回墨尔本机场还车。"
+          "type": "walk",
+          "text": "吉朗晚餐"
+        },
+        {
+          "id": "day-7-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "返回墨尔本机场还车"
         },
         {
           "id": "day-7-hotel",
@@ -693,8 +739,7 @@
         }
       ],
       "notes": [
-        "回程较长，避免塞入市区夜间活动",
-        "住宿预订：高级大床房 · 1 间 · 2 人。入住 14:00 后；退房 11:00 前。不含早餐。23 日暂选约 11:10 起飞的航班，按机场值机时间提前退房。"
+        "回程较长，避免塞入市区夜间活动\n住宿预订：高级大床房 · 1 间 · 2 人。入住 14:00 后；退房 11:00 前。不含早餐。23 日暂选约 11:10 起飞的航班，按机场值机时间提前退房。"
       ]
     },
     {
@@ -885,7 +930,7 @@
     {
       "day": 11,
       "date": "2026-11-26",
-      "title": "塔龙加动物园",
+      "title": "塔龙加动物园/bondi",
       "city": "悉尼",
       "locations": [
         "悉尼"
@@ -903,8 +948,7 @@
           "id": "day-11-plan-2",
           "time": "",
           "type": "walk",
-          "text": "bondi海滩",
-          "placeId": "place-41"
+          "text": "bondi海滩-coogee"
         },
         {
           "id": "day-11-hotel",
@@ -992,7 +1036,7 @@
     {
       "day": 13,
       "date": "2026-11-28",
-      "title": "北悉尼",
+      "title": "北悉尼（市集/游泳）",
       "city": "悉尼",
       "locations": [
         "悉尼"
@@ -1003,8 +1047,7 @@
           "id": "day-13-plan-1",
           "time": "",
           "type": "walk",
-          "text": "悉尼大学",
-          "placeId": "place-42"
+          "text": "Carriageworks Farmers’ Market（市集/只有周六开/下午一点就结束）"
         },
         {
           "id": "day-13-plan-2",
@@ -1017,8 +1060,7 @@
           "id": "day-13-plan-3",
           "time": "",
           "type": "walk",
-          "text": "North Sydney Olympic Pool",
-          "placeId": "place-44"
+          "text": "North Sydney Olympic Pool 游泳"
         },
         {
           "id": "day-13-plan-4",
@@ -1086,8 +1128,7 @@
         }
       ],
       "notes": [
-        "悉尼起飞时间为当地时间，广州抵达时间为北京时间；广州中转酒店预约已提交，等待房源确认",
-        "住宿预订：房型待确认（截图酒店等级：C 级）。待确认。免费中转住宿。截图显示订单支付成功，正在锁定酒店房源；最终以短信或邮件确认通知为准。 抵达广州后，按南航中转柜台指引办理入住；接送方式与柜台位置待补充。"
+        "悉尼起飞时间为当地时间，广州抵达时间为北京时间；广州中转酒店预约已提交，等待房源确认\n住宿预订：房型待确认（截图酒店等级：C 级）。待确认。免费中转住宿。截图显示订单支付成功，正在锁定酒店房源；最终以短信或邮件确认通知为准。 抵达广州后，按南航中转柜台指引办理入住；接送方式与柜台位置待补充。"
       ]
     },
     {
@@ -1534,7 +1575,7 @@
       {
         "id": "packing-0",
         "text": "护照\n签证单（需打印）",
-        "completed": false
+        "completed": true
       },
       {
         "id": "packing-1",
@@ -1549,17 +1590,17 @@
       {
         "id": "packing-3",
         "text": "驾照与租车资料",
-        "completed": false
+        "completed": true
       },
       {
         "id": "packing-5",
         "text": "泳衣、泳镜、泳帽",
-        "completed": false
+        "completed": true
       },
       {
         "id": "packing-7",
         "text": "一次性内裤、一次性浴巾、一次性四件套",
-        "completed": false
+        "completed": true
       }
     ],
     "preparationsExplicitlyMentioned": [],
@@ -1711,7 +1752,7 @@
   "unplannedAttractions": [
     {
       "id": "unplanned-attractions",
-      "text": ""
+      "text": "1.墨尔本 mount lofty 徒步 看袋鼠\n2.墨尔本fitzroy街区逛街\n3.墨尔本 阿尔伯特公园（f1赛道）\n4.悉尼美术馆（周三开到晚上十点）"
     }
   ]
 }
