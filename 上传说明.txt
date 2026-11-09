@@ -1,0 +1,5 @@
+更新内容：大洋路自驾详情、取还车指引与编辑器。
+
+将本目录中的 5 个文件上传并覆盖 GitHub 仓库根目录的同名文件：index.html、app.js、cloud-sync.js、journal.css、trip-data.json。完成提交后等待 GitHub Pages 部署。
+
+订单号、驾驶员联系方式和证件信息未放入公开文件。Cloudflare Worker 已部署新版，D1 自驾资料已更新；网页连云后将从云端载入共享内容。

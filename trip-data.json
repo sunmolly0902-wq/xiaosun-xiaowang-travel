@@ -309,46 +309,97 @@
   ],
   "groundTransport": {
     "rentalCar": {
-      "placeholder": true,
-      "company": "租车公司待确认",
-      "insurance": [],
+      "placeholder": false,
+      "company": "SiXT",
+      "insurance": [
+        "Loss Damage Waiver（含盗窃保障），最低自付额条款以订单为准。",
+        "Interior Protection（内饰保障）。",
+        "Tyre and Windscreen Protection（轮胎及挡风玻璃保障）。",
+        "Roadside Protection（道路救援保障）。",
+        "附加服务：强制第三方保险；碰撞、刮擦、碰撞凹痕及盗窃损失保障。保障范围和除外责任以租车合同为准。",
+        "订单显示无限里程。"
+      ],
+      "rentalRequirements": [
+        "每位驾驶员携带驾驶执照，并携带护照或当地认可的身份证件。",
+        "携带接受的付款方式；截图提示接受信用卡。",
+        "租车人须年满 21 岁；主要驾驶员姓名须与付款信用卡持卡人一致。",
+        "请携带证件原件。截图提示车内禁止吸烟，并允许携带宠物。"
+      ],
+      "depositInfo": [
+        "押金可退还。信用卡预付订单：预订时收取租金，取车时在卡上冻结额外押金。",
+        "到店支付订单：使用信用卡时，租金和押金会冻结在卡上；使用借记卡时，可能收取押金及总租金。",
+        "豪华车型押金可能更高；具体金额以门店和订单说明为准。"
+      ],
+      "cancellationInfo": [
+        "截图所示：选择到店支付的灵活预订，可在取车时间前免费取消并重新预订。请以订单页面的实际条款为准。"
+      ],
+      "orderChanges": [
+        "截图提示：在线付款方式无法变更；可更新并核验驾驶执照/信息；额外费用可在取车时支付。企业协议订单规则可能不同。"
+      ],
       "rentalPeriodDays": 2,
       "price": {
-        "payAtCounter": null,
+        "payAtCounter": 33,
         "currency": ""
       },
       "pickup": {
-        "date": "2026-11-21",
-        "time": "",
-        "address": "",
         "utcOffset": "+11:00",
-        "location": "墨尔本机场（暂定）"
+        "date": "2026-11-21",
+        "time": "09:00",
+        "location": "Melbourne city",
+        "address": "Shop 10, 99 Spencer St, 3008 Docklands, Australia",
+        "operatingHours": "每日及节假日 08:00–13:00",
+        "instructions": "Sixt 门店位于 Docklands 的 DFO 下方。公共交通可到 Southern Cross Station（约 100 米）或 Lonsdale Street / Spencer Street 电车站，门店后方有公交站。自驾还车进入 Lonsdale Street 与 Spencer Street 路口的 Care Park 停车场；过闸后右转，按指示前往 Sixt 停车区。"
       },
-      "unlimitedKilometers": null,
-      "status": "pending",
+      "unlimitedKilometers": true,
+      "status": "confirmed",
       "dropoff": {
-        "vehicleReturnPoint": "墨尔本机场（暂定）",
-        "recommendedArrivalTime": "",
+        "deadlineWarning": "请按机场 Car Rental Return 标志驶入；还车及机场值机需预留时间。非营业时间可将钥匙交回门店后方停车场的钥匙箱。",
+        "vehicleReturnPoint": "Melbourne Airport",
+        "address": "Melbourne Airport, Terminal Building, Tullamarine VIC 3043, Australia",
+        "operatingHours": "每日及节假日 06:00–23:00",
+        "instructions": "Sixt 位于 T1、T2、T3 航站楼外、ParkRoyal Hotel 下方多层停车场的地面层。公共交通建议乘出租车或网约车。还车路线：从 Tullamarine Freeway 按路牌驶向 Melbourne Airport，走 19B 出口前往 T1/T2/T3 停车场；按 Car Rental Returns 标志行驶，在 Centre Road 信号灯处右转，再左转进入 T1/T2/T3 停车楼地面层租车入口，过闸后按 Sixt 标志行驶。非营业时间可把钥匙放入主门店后方停车场的钥匙箱。",
+        "date": "2026-11-22",
         "timeZoneLabel": "墨尔本当地时间",
         "location": "墨尔本机场（暂定）",
-        "date": "2026-11-22",
-        "time": "",
-        "deadlineWarning": "取还车时间、租车公司、车型、价格与保险待确认",
+        "recommendedArrivalTime": "",
+        "time": "21:00",
         "utcOffset": "+11:00"
       },
       "vehicle": {
-        "example": "车型待确认",
+        "example": "Toyota Corolla Hybrid 或同组车型",
         "class": ""
       },
       "routeTitle": "大洋路自驾",
       "accommodationNote": "21 日住 Apollo Bay Motel & Apartments，22 日住 Ibis Styles Melbourne Airport，两晚均已预订。"
     },
-    "rentalChecklist": [],
-    "drivingNotes": [
-      "预留停车、休息和驾驶时间",
-      "回程较长，避免塞入市区夜间活动"
+    "rentalChecklist": [
+      "取车时检查车身、玻璃、轮胎、内饰与油量/电量；拍照或录像留存，并确认已有损伤记入合同。",
+      "核对车型、取还车日期/时间、取还门店、里程政策、燃油政策及保险/自付额。",
+      "确认驾驶员资料、付款卡和押金要求；领取合同、钥匙及紧急联系电话。",
+      "还车前检查个人物品，按合同要求补足燃油；拍摄还车位置、车况及仪表盘照片。",
+      "还车后确认工作人员验车并取得还车凭证；非营业时间还钥匙前拍照，并确认钥匙箱位置和操作。"
     ],
-    "drivingReferenceLinks": [],
+    "drivingNotes": [
+      "澳大利亚靠左行驶；出发前熟悉右舵车辆与雨刮/转向灯位置，进入环岛前减速并按路标行驶。",
+      "全程按路牌限速并根据路况调整；所有乘客全程系安全带。驾驶中不要操作手机，导航在出发前设置好。",
+      "长途行车至少每两小时安排休息；避免疲劳驾驶和黄昏/夜间赶路，尤其留意野生动物。",
+      "大洋路弯道、观景点和停车场较多；只在安全位置停车拍照，慢行时在安全处让后车通过。预留停车、休息和驾驶时间。",
+      "回程较长，避免塞入市区夜间活动；如驾驶员感到疲劳，及时安全停车休息。"
+    ],
+    "drivingReferenceLinks": [
+      {
+        "label": "Transport Victoria：游客在维州驾驶提示",
+        "url": "https://transport.vic.gov.au/road-and-active-transport/road-rules-and-safety/tourists-driving-in-victoria"
+      },
+      {
+        "label": "Transport Victoria：疲劳与驾驶",
+        "url": "https://transport.vic.gov.au/road-and-active-transport/road-rules-and-safety/fatigue-and-driving"
+      },
+      {
+        "label": "Transport Victoria：环岛规则",
+        "url": "https://transport.vic.gov.au/road-and-active-transport/road-rules-and-safety/roundabouts"
+      }
+    ],
     "plannedRoadLegs": [
       {
         "day": 6,
@@ -713,16 +764,52 @@
           "id": "day-7-plan-2",
           "time": "",
           "type": "walk",
-          "text": "十二门徒岩（已预约12点游客中心停车）"
+          "text": "Hordern Vale（野生考拉）"
         },
         {
           "id": "day-7-plan-3",
           "time": "",
           "type": "walk",
-          "text": "吉朗晚餐"
+          "text": "十二门徒岩（已预约12点游客中心停车）"
         },
         {
           "id": "day-7-plan-4",
+          "time": "",
+          "type": "walk",
+          "text": "Loch Ard Gorge（洛克阿德峡谷）"
+        },
+        {
+          "id": "day-7-plan-5",
+          "time": "",
+          "type": "walk",
+          "text": "The Arch （拱门）"
+        },
+        {
+          "id": "day-7-plan-6",
+          "time": "",
+          "type": "walk",
+          "text": "London Bridge （伦敦桥）"
+        },
+        {
+          "id": "day-7-plan-7",
+          "time": "",
+          "type": "walk",
+          "text": "The Grotto （岩穴）"
+        },
+        {
+          "id": "day-7-plan-8",
+          "time": "",
+          "type": "walk",
+          "text": "Bay of Martyrs（烈士湾）"
+        },
+        {
+          "id": "day-7-plan-9",
+          "time": "",
+          "type": "walk",
+          "text": "Bay Of Islands （群岛湾）"
+        },
+        {
+          "id": "day-7-plan-10",
           "time": "",
           "type": "walk",
           "text": "返回墨尔本机场还车"
@@ -741,7 +828,7 @@
         }
       ],
       "notes": [
-        "回程较长，避免塞入市区夜间活动\n住宿预订：高级大床房 · 1 间 · 2 人。入住 14:00 后；退房 11:00 前。不含早餐。23 日暂选约 11:10 起飞的航班，按机场值机时间提前退房。"
+        "回程约三小时\n住宿预订：高级大床房 · 1 间 · 2 人。入住 14:00 后；退房 11:00 前。不含早餐。23 日暂选约 11:10 起飞的航班，按机场值机时间提前退房。"
       ]
     },
     {
@@ -1638,7 +1725,7 @@
     "navigationPlaces": []
   },
   "issuesAndUncertainties": [
-    "酒店与租车均沿用暂定状态，订单详情待补充",
+    "广州中转酒店房源待最终确认；部分活动门票与预约待确认",
     "活动门票和预约待确认",
     "广州过夜住宿待确认"
   ],

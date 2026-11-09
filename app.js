@@ -653,12 +653,6 @@ function renderRental() {
   const pickup = rental.pickup || {}, dropoff = rental.dropoff || {};
   const booked = !rental.placeholder && rental.status === "confirmed";
   $("#rental-provider-label").textContent = booked ? "已预订" : "待确认";
-  if (rental.placeholder) {
-    $("#rental-card").innerHTML = `<article class="journal-rental-pending"><span class="journal-status">租车待确认</span><h3>${escapeHtml(rental.routeTitle || "大洋路自驾")} · ${escapeHtml(rental.rentalPeriodDays || 2)} 天</h3><p>${escapeHtml(formatCompactDate(pickup.date))} · ${escapeHtml(pickup.location || "取车地点待确认")}取车</p><p>${escapeHtml(formatCompactDate(dropoff.date))} · ${escapeHtml(dropoff.vehicleReturnPoint || dropoff.location || "还车地点待确认")}还车</p><p>${escapeHtml(rental.accommodationNote || "21 日住 Apollo Bay Motel & Apartments，22 日住 Ibis Styles Melbourne Airport，两晚均已预订。")}</p><p class="detail-note">${escapeHtml(dropoff.deadlineWarning || "租车订单信息待补充")}</p></article>${rentalEditorMarkup(rental, transport.drivingNotes || [])}`;
-    setupRentalEditor();
-    $("#drive-notes").innerHTML = (transport.drivingNotes || []).map(note => `<p class="detail-note">${escapeHtml(note)}</p>`).join("");
-    return;
-  }
   const status = rentalStatus(rental);
   const vehicle = rental.vehicle || {};
   const price = rental.price || {};
@@ -689,18 +683,22 @@ function renderRental() {
           </div>
           <div class="rental-stop">
             <span class="rental-stop__label">RETURN</span>
-            <div><b>${formatCompactDate(dropoff.date)} ${escapeHtml(dropoff.time)}</b><span>${escapeHtml(dropoff.vehicleReturnPoint || dropoff.location || "")}<br>建议 ${escapeHtml(dropoff.recommendedArrivalTime || "")} 抵达机场区域</span></div>
+            <div><b>${formatCompactDate(dropoff.date)} ${escapeHtml(dropoff.time)}</b><span>${escapeHtml(dropoff.vehicleReturnPoint || dropoff.location || "")}<br>${escapeHtml(dropoff.address || "")}<br>建议 ${escapeHtml(dropoff.recommendedArrivalTime || "")} 抵达机场区域</span></div>
           </div>
         </div>
         <div class="rental-price"><span>${booked ? "订单价格" : "柜台支付"} · ${escapeHtml(rental.rentalPeriodDays)} 天</span><strong>${escapeHtml(price.currency || "AUD")} ${Number(price.payAtCounter || 0).toFixed(2)}${price.baseAmount ? `（约 CNY ${Number(price.baseAmount).toFixed(2)}）` : ""}</strong></div>
+        <details class="rental-location-details"><summary>取还车地址、营业时间与门店指引</summary>
+          <h4>墨尔本市区取车 · ${escapeHtml(pickup.operatingHours || "营业时间待补充")}</h4><p>${escapeHtml(pickup.address || "地址待补充")}</p><p class="detail-note">${escapeHtml(pickup.instructions || "门店指引待补充")}</p>
+          <h4>墨尔本机场还车 · ${escapeHtml(dropoff.operatingHours || "营业时间待补充")}</h4><p>${escapeHtml(dropoff.address || "地址待补充")}</p><p class="detail-note">${escapeHtml(dropoff.instructions || "还车指引待补充")}</p>
+        </details>
       </div>
     </article>${rentalEditorMarkup(rental, transport.drivingNotes || [])}
   `;
   setupRentalEditor();
   const insurance = (rental.insurance || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
   const panels = {
-    checklist: transport.rentalChecklist.map((rule) => `<li>${escapeHtml(rule)}</li>`).join(""),
-    insurance,
+    checklist: (transport.rentalChecklist || []).map((rule) => `<li>${escapeHtml(rule)}</li>`).join(""),
+    insurance: `<li><strong>订单保障</strong></li>${insurance}<li><strong>证件与租车要求</strong></li>${(rental.rentalRequirements || []).map((rule) => `<li>${escapeHtml(rule)}</li>`).join("")}<li><strong>押金规则</strong></li>${(rental.depositInfo || []).map((rule) => `<li>${escapeHtml(rule)}</li>`).join("")}<li><strong>取消与修改</strong></li>${(rental.cancellationInfo || []).map((rule) => `<li>${escapeHtml(rule)}</li>`).join("")}${(rental.orderChanges || []).map((rule) => `<li>${escapeHtml(rule)}</li>`).join("")}`,
     driving: `${(transport.drivingNotes || []).map((rule) => `<li>${escapeHtml(rule)}</li>`).join("")}${(transport.drivingReferenceLinks || []).map((link) => `<li><a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} ↗</a></li>`).join("")}`
   };
   const notes = $("#drive-notes");
@@ -729,12 +727,22 @@ function rentalEditorMarkup(rental, drivingNotes = []) {
   return `<details class="rental-editor"><summary>编辑大洋路自驾信息</summary><div class="rental-editor-grid">
     ${field("routeTitle", "路线名称", rental.routeTitle || "大洋路自驾")}${field("rentalPeriodDays", "租车天数", rental.rentalPeriodDays || 2, "number", "1")}
     ${field("company", "租车公司", rental.company)}${field("vehicle.example", "车型", v.example)}
-    ${field("pickup.date", "取车日期", p.date, "date")}${field("pickup.time", "取车时间", p.time, "time")}${field("pickup.location", "取车地点", p.location)}
-    ${field("dropoff.date", "还车日期", d.date, "date")}${field("dropoff.time", "还车时间", d.time, "time")}${field("dropoff.vehicleReturnPoint", "还车地点", d.vehicleReturnPoint || d.location)}
+    ${field("pickup.date", "取车日期", p.date, "date")}${field("pickup.time", "取车时间", p.time, "time")}${field("pickup.location", "取车门店", p.location)}
+    ${field("pickup.address", "取车地址", p.address)}${field("pickup.operatingHours", "取车门店营业时间", p.operatingHours)}
+    ${area("pickup.instructions", "取车到店指引", p.instructions || "", 3)}
+    ${field("dropoff.date", "还车日期", d.date, "date")}${field("dropoff.time", "还车时间", d.time, "time")}${field("dropoff.vehicleReturnPoint", "还车门店", d.vehicleReturnPoint || d.location)}
+    ${field("dropoff.address", "还车地址", d.address || "")}${field("dropoff.operatingHours", "还车门店营业时间", d.operatingHours || "")}
+    ${area("dropoff.instructions", "还车及非营业时间还车指引", d.instructions || "", 4)}
     ${field("price.payAtCounter", "价格（AUD）", c.payAtCounter, "number", "0.01")}${field("price.baseAmount", "折合人民币（CNY）", c.baseAmount, "number", "0.01")}
     ${area("accommodationNote", "大洋路住宿与说明", rental.accommodationNote || "21 日住 Apollo Bay Motel & Apartments，22 日住 Ibis Styles Melbourne Airport，两晚均已预订。", 3)}
     ${area("dropoff.deadlineWarning", "还车提示", d.deadlineWarning, 2)}
-    ${area("drivingNotes", "驾驶备注（每行一条）", drivingNotes.join("\n"), 4)}
+    ${area("rentalChecklist", "取还车检查（每行一条）", (rental.rentalChecklist || []).join("\n"), 5)}
+    ${area("insurance", "订单保障（每行一条）", (rental.insurance || []).join("\n"), 4)}
+    ${area("rentalRequirements", "租车所需证件与一般要求（每行一条）", (rental.rentalRequirements || []).join("\n"), 5)}
+    ${area("depositInfo", "押金规则（每行一条）", (rental.depositInfo || []).join("\n"), 5)}
+    ${area("cancellationInfo", "取消规则（每行一条）", (rental.cancellationInfo || []).join("\n"), 3)}
+    ${area("orderChanges", "修改订单规则（每行一条）", (rental.orderChanges || []).join("\n"), 3)}
+    ${area("drivingNotes", "驾驶提醒（每行一条）", drivingNotes.join("\n"), 5)}
     <label>预订状态<select data-rental-field="status"><option value="confirmed" ${rental.status === "confirmed" ? "selected" : ""}>已预订</option><option value="pending" ${rental.status !== "confirmed" ? "selected" : ""}>待确认</option></select></label>
   </div><p class="journal-save-status">修改后自动保存；连接云端时两人共享。</p></details>`;
 }
@@ -753,6 +761,16 @@ function saveRentalEditor(event) {
   const path = input.dataset.rentalField.split("."), ground = state.data.groundTransport, rental = ground.rentalCar;
   if (path[0] === "drivingNotes") {
     ground.drivingNotes = input.value.split(/\r?\n/).map(note => note.trim()).filter(Boolean);
+    persistJournal();
+    return;
+  }
+  if (path[0] === "rentalChecklist") {
+    ground.rentalChecklist = input.value.split(/\r?\n/).map(note => note.trim()).filter(Boolean);
+    persistJournal();
+    return;
+  }
+  if (["insurance", "rentalRequirements", "depositInfo", "cancellationInfo", "orderChanges"].includes(path[0])) {
+    rental[path[0]] = input.value.split(/\r?\n/).map(note => note.trim()).filter(Boolean);
     persistJournal();
     return;
   }
