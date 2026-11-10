@@ -11,14 +11,14 @@
   <meta name="description" content="2026年11月16日至30日，小孙小王的墨尔本与悉尼旅行日记。">
   <link rel="stylesheet" href="styles.css?v=20261013-1">
   <link rel="stylesheet" href="ledger.css?v=20261013-1">
-  <link rel="stylesheet" href="journal.css?v=20261109-sixt-edit-1">
+  <link rel="stylesheet" href="journal.css?v=20261110-map-links-1">
   <script src="runtime-storage.js?v=20260910-2" defer></script>
   <script src="overview-map.js?v=20260910-2" defer></script>
   <script src="route-ui.js?v=20260910-2" defer></script>
   <script src="app.js?v=20261109-sixt-edit-1" defer></script>
   <script src="hotel-bookings.js?v=20261014-cloud-1" defer></script>
   <script src="cloud-sync.js?v=20261109-sixt-edit-1" defer></script>
-  <script src="journal.js?v=20261109-road-edit-2" defer></script>
+  <script src="journal.js?v=20261110-map-links-1" defer></script>
   <script src="ticket-pdf-preview.js?v=20260910-2" defer></script>
   <script src="ledger.js?v=20261014-cloud-1" defer></script>
   <script src="site-navigation.js?v=20261109-road-edit-2" defer></script>
@@ -50,7 +50,7 @@
       <div class="hero__eyebrow" id="trip-eyebrow"></div>
       <h1 id="trip-title">正在载入旅程</h1>
       <p class="hero__date" id="trip-date"></p>
-      <div class="journal-tools"><a id="journal-maps" target="_blank" rel="noopener noreferrer">我的 Google 地图收藏 ↗</a><button id="journal-export" type="button">导出备份</button><button id="journal-import" type="button">导入备份</button><input id="journal-import-file" type="file" accept=".json,application/json" hidden></div>
+      <div class="journal-tools"><div class="journal-map-links" id="journal-map-links" aria-label="Google 地图收藏链接"></div><button id="journal-export" type="button">导出备份</button><button id="journal-import" type="button">导入备份</button><input id="journal-import-file" type="file" accept=".json,application/json" hidden></div>
       <p id="journal-status" class="journal-save-status" role="status">修改自动保存在这台设备的浏览器中；换设备前请先导出备份。</p>
     </section>
 

@@ -1,6 +1,29 @@
 const JOURNAL_KEY = 'xiaosun-xiaowang-australia-journal-v1';
+const EXTRA_GOOGLE_MAP_LINKS = [{
+  label: 'Google 地图收藏（补充）',
+  url: 'https://www.google.com/maps/@24.9823232,121.5430656,12z/data=!4m2!11m1!2sR5fDSpks3r7pgkBw-Ki2NuzRgjVsrw?entry=ttu&g_ep=EgoyMDI2MTEwOC4wIKXMDSoASAFQAw%3D%3D'
+}];
 let journalDay = null;
 let journalTodo = null;
+
+function renderJournalMapLinks() {
+  const container = document.querySelector('#journal-map-links');
+  if (!container) return;
+  const configured = state.data.mapLinks?.providedGoogleMapsLinks || [];
+  const seen = new Set();
+  container.replaceChildren();
+  for (const map of [...configured, ...EXTRA_GOOGLE_MAP_LINKS]) {
+    const url = safeExternalUrl(map.url);
+    if (!url || seen.has(url)) continue;
+    seen.add(url);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    anchor.textContent = `${map.label || 'Google 地图收藏'} ↗`;
+    container.append(anchor);
+  }
+}
 
 function applyJournalUpdates(data) {
   const updateId = '20261013-swap-nov18-nov19';
@@ -158,8 +181,7 @@ function setupJournal() {
   setupHotelEditor();
   setupUnplannedAttractions();
   window.TravelCloud?.setup?.();
-  const map=state.data.mapLinks.providedGoogleMapsLinks[0];
-  if(map){$('#journal-maps').href=map.url;$('#journal-maps').textContent=map.label+' ↗';}
+  renderJournalMapLinks();
   $('#journal-export').onclick=exportJournal;
   $('#journal-import').onclick=()=>$('#journal-import-file').click();
   $('#journal-import-file').onchange=async(event)=>{
